@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+// import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CouchServiceService {
-  public productList = new BehaviorSubject<any>([]);
+  // public productList = new BehaviorSubject<any>([]);
 
   public endpoint =
     'https://5804af1c-53d6-4cc1-b0eb-5219a1cc5775-bluemix.cloudant.com/';
@@ -58,7 +58,7 @@ export class CouchServiceService {
     return this.http.post(url, doc, this.httpOptions);
   }
 
-  getProducts() {
-    return this.productList.asObservable();
-  }
+  // getProducts() {
+  //   return this.productList.asObservable();
+  // }
 }
