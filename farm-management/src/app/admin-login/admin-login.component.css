@@ -57,7 +57,7 @@ button:focus {
 .window {
   z-index: 100;
   color: #fff;
-  font-family: roboto;
+  font-family: roboto,sans-serif;
   position: relative;
   display: flex;
   flex-flow: column;

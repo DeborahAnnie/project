@@ -26,7 +26,7 @@ tr:nth-child(even){
     color: white;
     margin: 0 8px;
     background-color:  rgb(63, 19, 19);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin-left: 70px;
 }
 .cart_btn{
@@ -37,7 +37,7 @@ tr:nth-child(even){
     font-weight: 400;
     font-size:18px ;
     margin-top: 20px;
-    border:none ;
+    /* border:none ; */
     padding: 4px 16px;
     text-transform: uppercase;
     transition: 0.4s;
