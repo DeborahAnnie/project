@@ -25,6 +25,9 @@ tr:nth-child(even){
     font-size: 16px;
     color: white;
     margin: 0 8px;
+    background-color:  rgb(63, 19, 19);
+    border-radius: 10px;
+    margin-left: 70px;
 }
 .cart_btn{
     border-radius: 4px;
@@ -59,7 +62,7 @@ tr:nth-child(even){
     outline:none;
     border:none;
 }
-.cart_icon i{
+.cart_icon em{
     font-size: 24px;
     color: #fff;
     right: 20px;
@@ -95,12 +98,7 @@ a {
       color: whitesmoke;
   }
 
-  .btn{
-    background-color:  rgb(63, 19, 19);
-    border-radius: 10px;
-    color: whitesmoke;
-    margin-left: 70px;
-}
+  
 .btn:hover{
     padding:10px;
     background-color:white;

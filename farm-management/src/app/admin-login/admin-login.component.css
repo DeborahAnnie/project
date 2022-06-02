@@ -24,7 +24,7 @@ button:focus {
   margin-bottom: 10px;
   line-height: 2.4em;
   color: #fff;
-  font-family: roboto;
+  font-family: roboto,sans-serif;
   font-weight: 300;
   letter-spacing: 0px;
   letter-spacing: 0.02rem;

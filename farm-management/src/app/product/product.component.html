@@ -24,7 +24,7 @@
     <div class="container">
         <div class="col-md-12 text-right">
             <div class="cart_icon" routerLink="/cart">
-                <i class="fa fa-shopping-cart"></i>
+                <em class="fa fa-shopping-cart"></em>
                 <div class="cart_value">
                     {{cartItem}}
                 </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="content">
                             <h4>₹{{prd.productPrice}}</h4>
-                            <button type="button" class="btn3" (click)="inc(prd)"> <i class="fa fa-plus"></i></button>
+                            <button type="button" class="btn3" (click)="inc(prd)"> <em class="fa fa-plus"></em></button>
                             <span>{{prd.productQnt}}</span>
                             <button type="button" class="btn3" (click)="dec(prd)"> <i class="fa fa-minus"></i></button>
                             <h3>Total Quantity: {{prd.totQnt - prd.productQnt | number}}</h3>

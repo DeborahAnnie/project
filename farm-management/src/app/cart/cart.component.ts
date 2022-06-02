@@ -16,10 +16,6 @@ export class CartComponent implements OnInit {
     this.cartDetails();
     this.loadCart();
     this.cartFunc();
-
-    // this.svc.getProducts().subscribe((res: any) => {
-    //   this.products = res;
-    // });
   }
 
   getcartDetail: any = [];
@@ -84,7 +80,7 @@ export class CartComponent implements OnInit {
             type: 'orderInfo',
           };
           taskList.push(
-            this.svc.add('demo_database', orderInfo).subscribe((res: any) => {
+            this.svc.add('demo_database', orderInfo).subscribe((_res: any) => {
               return res;
             })
           );
@@ -99,7 +95,6 @@ export class CartComponent implements OnInit {
       }
     );
   }
-
   orderDetails() {
     let data = {
       selector: {
