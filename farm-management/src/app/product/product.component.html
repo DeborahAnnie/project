@@ -50,7 +50,8 @@
                             <h4>₹{{prd.productPrice}}</h4>
                             <button type="button" class="btn3" (click)="inc(prd)"> <em class="fa fa-plus"></em></button>
                             <span>{{prd.productQnt}}</span>
-                            <button type="button" class="btn3" (click)="dec(prd)"> <i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn3" (click)="dec(prd)"> <em
+                                    class="fa fa-minus"></em></button>
                             <h3>Total Quantity: {{prd.totQnt - prd.productQnt | number}}</h3>
                         </div>
                         <button type="button" class="cart_btn" (click)="addCart(prd)">Add to Cart</button>

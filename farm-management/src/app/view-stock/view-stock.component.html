@@ -3,6 +3,7 @@
         <h2>Total Stock</h2>
 
         <table>
+            <caption>
             <tr>
                 <th>Name</th>
                 <th>Quantity</th>
@@ -11,4 +12,5 @@
                 <td>{{stock.productName}}</td>
                 <td>{{stock.totQnt - stock.productQnt | number}}</td>
             </tr>
+            </caption>
         </table>
