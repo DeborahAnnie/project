@@ -1,0 +1,84 @@
+  footer .socials {
+  display: flex;
+  flex-direction: row;
+   padding: 1em;
+   gap: 1em;
+   margin-bottom: 1em;
+  } 
+  .socials .fb:hover{
+    background-color:#2a8ded;
+  }
+  .socials .twt:hover{
+    background-color:#27bcda;
+  } .socials .insta:hover{
+    background-color:red;
+  } .socials .pint:hover{
+    background-color:crimson;
+  }
+footer {
+    background-color: #121315;
+    color: #a7a7a7;
+    font-size: 16px;
+    /* height:100px; */
+  }
+  footer * {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    /* align-items: stretch; */
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 1.4em;
+    white-space: nowrap;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  li:not(:first-child) {
+    margin-top: 0.8em;
+  }
+  ul li a {
+    color: #a7a7a7;
+    text-decoration: none;
+  }
+  ul li a:hover {
+    color: #2a8ded;
+  }
+  .about p {
+    text-align: justify;
+    line-height: 2;
+    margin: 0;
+  }
+  .footer-menu{
+    float: left;
+      margin-top: 10px;
+  }
+  
+  .footer-menu a{
+    color: #cfd2d6;
+    padding: 6px;
+    text-decoration: none;
+  }
+  .footer-menu a:hover{
+    color: #27bcda;
+  }
+  .copyright p {
+    font-size: 0.9em;
+    text-align: right;
+  }

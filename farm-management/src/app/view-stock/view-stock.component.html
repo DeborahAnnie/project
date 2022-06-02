@@ -1,0 +1,14 @@
+<section class="cart_section">
+    <div class="container">
+        <h2>Total Stock</h2>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+            <tr *ngFor="let stock of getStock">
+                <td>{{stock.productName}}</td>
+                <td>{{stock.totQnt - stock.productQnt | number}}</td>
+            </tr>
+        </table>

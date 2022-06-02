@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+
+<body>
+    <div class="container">
+        <div class="panel-heading">
+            <h1>
+                TO BUY
+                <br />
+                OUR STOCKS - FERTILIZERS, PESTICIDES & CROPS
+            </h1>
+        </div>
+        <!-- <div>
+            <form [formGroup]="myform" (ngSubmit)="submit(this.myform.value)">
+                <div> <label>Username :</label>
+                    <input type="text" name="username" class="form-control" id="username" formControlName="username"
+                        name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password :</label>
+                    <input formControlName="password" id="password" type="password" class="form-control"
+                        name="password">
+                    <div *ngIf="f.password?.touched && f.password?.invalid" class="alert alert-danger">
+                        <div *ngIf="f.password.errors?.required">Password is required.</div>
+                        <div *ngIf="f.password.errors?.password">Please, enter valid Password address.</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" href="user">Login</button>
+                <p class="sign"> If you don't have an account,
+                    <button><a href="signup">Sign-Up</a></button>
+                </p>
+            </form>
+        </div>
+    </div>
+</body> -->
+
+
+        <div class="loginform">
+            <form [formGroup]="loginform" (ngSubmit)="login(this.loginform.value)">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" formControlName="username" class="form-control"
+                        placeholder="Enter username">
+                    <div class="help-block text-danger" *ngIf="username?.touched">
+                        <span *ngIf="username.errors?.required"> username is REQUIRED!!! </span>
+                        <span *ngIf="username.errors?.username"> username is invalid!!! </span>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="Password" formControlName="Password"
+                            placeholder="Password" name="Password"><br><br>
+                        <div class="help-block text-danger" *ngIf="Password?.touched">
+                            <span *ngIf="Password.errors?.required"> Password is REQUIRED!!! </span>
+                            <span *ngIf="Password.errors?.Password"> Password is invalid!!! </span>
+                        </div>
+                    </div>
+                    <div><button type="submit" class="btn">Login</button></div>
+                    <p class="sign"> If you don't have an account,
+                        <button><a href="signup">Sign-Up</a></button>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>

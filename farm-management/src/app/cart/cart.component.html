@@ -1,0 +1,53 @@
+<header>
+    <div class="container">
+        <div>
+            <button class="btn2">
+                <a href="product">Home</a>
+            </button>
+        </div>
+        <div class="col-md-12 text-right">
+            <div class="cart_icon" routerLink="/cart">
+                <i class="fa fa-shopping-cart"></i>
+                <div class="cart_value">
+                    {{cartItem}}
+                </div>
+            </div>
+        </div>
+
+        <button class="btn1"><a href="user">Your Information</a></button>
+    </div>
+
+    <button class="btn" (click)="logOut()">Log Out</button>
+
+
+</header>
+<!-- ------------------------------------------------------------------------------------------------------------------ -->
+<section class="cart_section">
+    <div class="container">
+        <h2>Cart</h2>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sub-Total</th>
+            </tr>
+            <tr *ngFor="let getDetail of getcartDetail">
+                <td>{{getDetail.productName}}</td>
+                <td>{{getDetail.productPrice}}</td>
+                <td>
+                    {{getDetail.productQnt}}
+                </td>
+                <td>₹{{getDetail.productQnt * getDetail.productPrice | number}}</td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-6">
+                <p> Total:₹ {{total}} </p>
+                <button type="button" class="cart_btn" (click)="removeall()">Remove All Items</button>
+                <button type="button" class="cart_btn" (click)="post()">Buy</button>
+            </div>
+        </div>
+    </div>
+</section>

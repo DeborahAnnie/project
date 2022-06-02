@@ -1,0 +1,88 @@
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: "Lexend Deca", sans-serif;
+    background-color:lightgray;
+  }
+  
+  h3 {
+    font-family: "Big Shoulders Display", sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+  }
+a{
+  text-decoration: none;
+  color:crimson;
+}
+a:hover {
+  color: #fff;
+}
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .btn {
+    background-color: white;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .bright-orange {
+    background-color: hsl(31, 77%, 52%);
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+  }
+   
+  
+  .dark-cyan {
+    background-color: hsl(184, 100%, 22%);
+    border-radius: 10px 10px 0px 0px;
+    color: #fff;
+  }
+  
+  .very-dark-cyan {
+    background-color: hsl(179, 100%, 13%);
+    color: #fff;
+    border-radius: 10px 10px 0px 0px;
+  }
+  
+  
+  .btn:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  .card {
+    padding: 30px;
+  }
+  
+  .card img {
+    margin-bottom: 25px;
+  }
+  
+  .card h3 {
+    margin-bottom: 20px;
+  }
+  
+  .card p {
+    margin-bottom: 30px;
+  } 
+  
+.container {
+    padding: 20px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      max-width: 900px;
+      margin: auto;
+    }

@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+body{
+  margin: 0;
+  height: 100%;
+}
+
+input {
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.input-line:focus {
+  outline: none;
+  border-color: #fff;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.input-line {
+  background: none;
+  margin-bottom: 10px;
+  line-height: 2.4em;
+  color: #fff;
+  font-family: roboto;
+  font-weight: 300;
+  letter-spacing: 0px;
+  letter-spacing: 0.02rem;
+  font-size: 19px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  transition: all .2s ease;
+}
+
+.input-fields {
+  margin-top: 25px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  height: 100%;
+}
+
+.content {
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  flex-flow: column;
+  z-index: 5;
+}
+
+.window {
+  z-index: 100;
+  color: #fff;
+  font-family: roboto;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  height: 350px;
+  width: 370px;
+  background: #fff;
+}
+
+.overlay {
+  background: -webkit-linear-gradient(#8CA6DB, #B993D6);
+  background: linear-gradient(#8CA6DB, #B993D6);
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  height: 350px;
+  position: absolute;
+  width: 370px;
+  z-index: 1;
+}
+ 
+.btn{
+  border: 20px;
+  background-color: #8CA6DB;
+  color: black;
+  float: right;
+  border-radius: 15px;
+  padding: 10px;
+}
+.btn:hover{
+  background-color: transparent;
+  color:blue;
+  border: 2px solid black;
+}

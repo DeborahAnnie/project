@@ -1,0 +1,43 @@
+<button class="btn" (click)="logOut()">Log Out</button>
+<button class="btn"><a href="view">View Stock</a></button>
+
+<body>
+    <div class="center">
+        <h1>Farm Stock Management</h1>
+        <form [formGroup]="prodForm" (ngSubmit)="add()">
+
+            <div class="inputbox">
+                <input type="text" required="required" id="productName" formControlName="productName"
+                    class="form-control">
+                <span>Product Name</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" id="img" formControlName="img" size="50" class="form-control">
+                <span>Product Image</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" id="category" formControlName="category" class="form-control">
+                <span>Product Category</span>
+            </div>
+            <div class="inputbox">
+                <input type="number" required="required" id="productPrice" formControlName="productPrice"
+                    class="form-control">
+                <span>Product Price</span>
+            </div>
+            <div class="inputbox">
+                <input type="number" required="required" id="productQnt" formControlName="productQnt"
+                    class="form-control">
+                <span>Product Stock</span>
+            </div>
+            <div class="inputbox">
+                <input type="number" required="required" id="totQnt" formControlName="totQnt" class="form-control">
+                <span>Total Stock</span>
+            </div>
+            <div class="inputbox">
+                <!-- <input type="button" value="submit"> -->
+                <button class="btn" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>

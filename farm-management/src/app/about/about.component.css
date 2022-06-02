@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    place-items: center;
+    background: #4f6d7a;
+    font-family: 'Courier New', Courier, monospace;
+}
+.clipper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+   }
+   
+.clipper img {
+     width: 25%;
+   }
+.extra-description {
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+  }
+  
+  .img-box img {
+    height: 460px;
+    width: auto;
+    margin-right: 45px;
+    margin-left: -100px;
+  }
+  
+ .text-box :not(:last-child) {
+    margin-bottom: 25px;
+    font-size:15px;
+  }
+  .desc-link {
+    color: hsl(0, 33%, 3%);
+    border-bottom: 1px solid hsl(176, 68%, 64%);
+  }
+  
+  
+.container{
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 260px;
+    height: 360px;
+    border-radius: 1em;
+    background: linear-gradient(50deg,#2a5a3b,#1e4886);
+    overflow: hidden;
+}
+.container::before{
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 35px;
+    top: 0;
+    right: 35px;
+    transition: 1.9s;
+    background: linear-gradient(50deg,#00ff59,#02b3ff);
+    transform: rotate(-45deg) translate(0,-100px);
+}
+.card{
+    display: grid;
+    place-items: center;
+    width: 250px;
+    height: 350px;
+    background: #171614;
+    z-index: 1;
+    color: #858585;
+    overflow: hidden;
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+}
+.card:hover{
+    color: white;
+}
+.container:hover::before{
+    animation: effect 1.9s;
+}
+@keyframes effect{
+    100%{
+        transform: rotate(-45deg) translate(0,450px)
+    }
+} 
+
+
+
+/* .slider{
+    height: 90%;
+    width: 80%;
+    background: url(../../images/crops.jpg);
+    background-repeat: no-repeat;
+    animation: slide 20s infinite;
+    margin: 100px auto;
+}
+
+@keyframes slide{
+    25%{
+        background: url(../../images/fertii.jpg);
+    background-repeat: no-repeat;
+
+    }
+    50%{
+        background: url(../../images/pestii.jpg);
+    background-repeat: no-repeat;
+
+    } 
+    75%{
+        background: url(../../images/crop1.jpg);
+    background-repeat: no-repeat;
+
+    } 
+    100%{
+        background: url(../../images/farmm.jpeg);
+    background-repeat: no-repeat;
+
+    }
+
+} */

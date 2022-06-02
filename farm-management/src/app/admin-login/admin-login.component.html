@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+
+<div class='bold-line'></div>
+<div class='container'>
+    <div class='window'>
+        <div class='overlay'></div>
+        <div class='content'>
+            <form [formGroup]="adminForm" (ngSubmit)="submit(adminForm.value)">
+                <div class="input-fields" [class.has-error]="userid?.invalid">
+                    <label>Username:</label>
+                    <input type="text" class='input-line full-width' formControlName="userid" required>
+                </div><br>
+                <div class="input-fields" [class.has-error]="pwd?.invalid">
+                    <label>Password:</label>
+                    <input type="text" class='input-line full-width' formControlName="pwd" required>
+                </div>
+                <a href="addstock"><button class="btn" type="submit">Login</button></a>
+            </form>
+        </div>
+    </div>
+</div>
