@@ -22,7 +22,7 @@ export class FormServiceService {
       Authorization: this.basicAuth,
     }),
   };
-  postDetails(doc: object, db: String): Observable<{}> {
+  postDetails(doc: object, db: string): Observable<{}> {
     const url = this.endpt + db;
     return this.http.post(url, doc, this.httpOptions);
   }

@@ -109,7 +109,7 @@ a {
       color: whitesmoke;
       margin-left: 80px;
       font-size: 16px;
-      margin: 0 8px;
+      /* margin: 0 8px; */
   }
   .btn:hover{
       padding:10px;
