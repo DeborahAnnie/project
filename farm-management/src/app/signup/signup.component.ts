@@ -5,7 +5,7 @@ import {
   AbstractControl,
   FormBuilder,
 } from '@angular/forms';
-import Validation from '../../../validator';
+import Validation from '../../../validation';
 import { FormServiceService } from '../form-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';

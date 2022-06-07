@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CouchServiceService } from '../couch-service.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css'],
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent {
   prodForm: FormGroup;
 
   userData = JSON.parse(localStorage.getItem('localS') || '{}');
@@ -28,7 +27,6 @@ export class AddProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dbsvc: CouchServiceService,
-    private http: HttpClient,
     private router: Router,
     private toast: ToastrService
   ) {
@@ -41,8 +39,6 @@ export class AddProductComponent implements OnInit {
       type: ['product'],
     });
   }
-
-  ngOnInit(): void {}
 
   get productName() {
     return this.prodForm.controls;
@@ -69,7 +65,6 @@ export class AddProductComponent implements OnInit {
       category: this.prodForm.value.category,
       productPrice: this.prodForm.value.productPrice,
       productQnt: this.prodForm.value.productQnt,
-      // totQnt: this.prodForm.value.totQnt,
       type: 'product',
     };
 
@@ -87,12 +82,12 @@ export class AddProductComponent implements OnInit {
     alert('Your account will be logged out!');
   }
 
-  ProductDetails() {
-    let datas = {
-      selector: {
-        type: 'product',
-        user: this.userData.id,
-      },
-    };
-  }
+  // ProductDetails() {
+  //   let datas = {
+  //     selector: {
+  //       type: 'product',
+  //       user: this.userData.id,
+  //     },
+  //   };
+  // }
 }

@@ -5,8 +5,8 @@ import {
   AbstractControl,
   Validators,
 } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CouchServiceService } from '../couch-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-info',
@@ -31,7 +31,7 @@ export class UserInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private couchdbsvc: CouchServiceService,
-    private http: HttpClient
+    private toast: ToastrService
   ) {
     this.userData = JSON.parse(localStorage.getItem('localS') || '{}');
     this.userId = this.userData;
@@ -92,5 +92,6 @@ export class UserInfoComponent implements OnInit {
         console.log(data);
         console.log('Success');
       });
+    this.toast.success('Your Details are recorded successfully!');
   }
 }

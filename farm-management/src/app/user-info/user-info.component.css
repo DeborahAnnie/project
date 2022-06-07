@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-input {
-  caret-color: red;
-}
-
 body {
   margin: 0;
   width: 100vw;
@@ -39,9 +35,6 @@ body {
   box-shadow: 7px 7px 10px #b5cce4, -7px -7px 10px white;
 }
 
-h1{
-  text-align: center;
-}
 .brand-title {
   margin-top: 10px;
   font-weight: 900;
@@ -85,6 +78,7 @@ input {
   font-size: 14px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  caret-color: red;
 }
 
 .btn {
@@ -103,22 +97,12 @@ input {
   box-shadow: none;
 }
 
-a {
-  font-size: 8px;
-  bottom: 4px;
-  right: 4px;
-  text-decoration: none;
-  padding: 2px;
-  margin-left: 600px;
-}
-
 h1 {
   position: absolute;
   top: 0;
   left: 0;
+  text-align: center;
 }
-
-
 
 header{
     background: rgb(63, 19, 19);
@@ -139,6 +123,11 @@ a {
     font-size: 20px;
     text-decoration: none;
     float: center;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: none;
+  padding: 2px;
+  margin-left: 600px;
   }
   a:hover{
       color: whitesmoke;

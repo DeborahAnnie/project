@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
   cartItem: number = 0;
   cartFunc() {
     if (localStorage.getItem('localCart') != null) {
-      var cartCount = JSON.parse(localStorage.getItem('localCart'));
+      let cartCount = JSON.parse(localStorage.getItem('localCart'));
       this.cartItem = cartCount.length;
       this.svc.cartSubject.next(this.cartItem);
     }
@@ -105,12 +105,12 @@ export class CartComponent implements OnInit {
       }
     );
   }
-  orderDetails() {
-    let data = {
-      selector: {
-        type: 'order',
-        user: this.userData.id,
-      },
-    };
-  }
+  // orderDetails() {
+  //   let data = {
+  //     selector: {
+  //       type: 'order',
+  //       user: this.userData.id,
+  //     },
+  //   };
+  // }
 }

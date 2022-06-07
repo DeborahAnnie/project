@@ -35,7 +35,9 @@ export class BuyFormComponent implements OnInit {
       cvv: [''],
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('buy form');
+  }
 
   submit() {
     console.log(this.buyform.value);

@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.get('/getdata/:id',(req,res)=>{
   console.log("username",req.params.id);
 
-  var objectnew = {
+  let objectnew = {
     selector:{
       "username":req.params.id,
       "type":"user"
@@ -31,7 +31,7 @@ app.get('/getdata/:id',(req,res)=>{
 
 app.post('/postdata',(req,res)=> {
   
-var objectnew = {
+let objectnew = {
   fullname:req.body.fullname,
   username:req.body.username,
   email:req.body.email,
@@ -54,7 +54,7 @@ res.send("Server Down Can't fetch Details");
 })
 
 app.post("/postdata1", function (req, res) {
-  var objectnew1 = {
+  let objectnew1 = {
     userid: req.body.userid,
     pwd: req.body.pwd,
   };

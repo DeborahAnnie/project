@@ -58,7 +58,7 @@ export class ProductComponent implements OnInit {
       storeData.push(stock);
       localStorage.setItem('localCart', JSON.stringify(storeData));
     } else {
-      var id = stock.prdId;
+      let id = stock.prdId;
       let index: number = -1;
       this.itemsCart = JSON.parse(localStorage.getItem('localCart'));
       for (let i = 0; i < this.itemsCart.length; i++) {
@@ -81,7 +81,7 @@ export class ProductComponent implements OnInit {
   // -----------------------------------------------------------
   cartNumber: number = 0;
   cartNumFunc() {
-    var cartVal = JSON.parse(localStorage.getItem('localCart'));
+    let cartVal = JSON.parse(localStorage.getItem('localCart'));
     this.cartNumber = cartVal.length;
     this.svc.cartSubject.next(this.cartNumber);
   }
@@ -89,7 +89,7 @@ export class ProductComponent implements OnInit {
   cartItem: number = 0;
   cartFunc() {
     if (localStorage.getItem('localCart') != null) {
-      var cartCount = JSON.parse(localStorage.getItem('localCart'));
+      let cartCount = JSON.parse(localStorage.getItem('localCart'));
       this.cartItem = cartCount.length;
       this.svc.cartSubject.next(this.cartItem);
     }
