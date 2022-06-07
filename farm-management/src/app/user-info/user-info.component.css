@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 body {
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   background: #ecf0f3;
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@ body {
   margin-left: 400px;
   position: relative;
   width: 550px;
-  height: 900px;
+  height: 1350px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -130,4 +131,18 @@ a {
   }
   a:hover{
       color: whitesmoke;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+ 
+  .help-block{
+    color: crimson;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
   }

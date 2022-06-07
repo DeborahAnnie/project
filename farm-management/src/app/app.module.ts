@@ -27,7 +27,6 @@ import { AddStockComponent } from './add-stock/add-stock.component';
 import { ViewStockComponent } from './view-stock/view-stock.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FilterPipe } from './filter.pipe';
-import { BuyFormComponent } from './buy-form/buy-form.component';
 import { HttpCallInterceptor } from './interceptor';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -49,7 +48,6 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'addproduct', component: AddProductComponent },
   { path: 'view', component: ViewStockComponent },
-  { path: 'buy', component: BuyFormComponent },
 ];
 
 @NgModule({
@@ -74,7 +72,6 @@ const routes: Routes = [
     ViewStockComponent,
     AddProductComponent,
     FilterPipe,
-    BuyFormComponent,
   ],
   imports: [
     CommonModule,

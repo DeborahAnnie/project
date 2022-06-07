@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   HttpEvent,
   HttpHandler,
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class HttpCallInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector, private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService) {}
 
   intercept(
     request: HttpRequest<any>,

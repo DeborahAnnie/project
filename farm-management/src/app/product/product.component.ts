@@ -11,8 +11,6 @@ export class ProductComponent implements OnInit {
   public product: any;
   public productArray: any = [];
   public filterCategory: any;
-  public searchKey: string = '';
-
   constructor(private svc: CouchServiceService, private router: Router) {
     this.svc.cartSubject.subscribe((data) => {
       this.cartItem = data;
@@ -20,12 +18,17 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.svc.prodDetails('product', 'demo_database').subscribe((datas: any) => {
-      console.log('stock', datas);
-      this.product = datas;
-      this.productArray = this.filterCategory = this.product = datas['docs'];
-      this.filterCategory = this.filterCategory.rows;
-    });
+    this.svc
+      .prodDetails1('product', 'demo_database')
+      .subscribe((datas: any) => {
+        console.log('stock', datas);
+        this.product = datas;
+        this.productArray =
+          this.filterCategory =
+          this.product =
+            datas.rows.map((x) => x.doc);
+        this.filterCategory = this.filterCategory.rows;
+      });
 
     this.cartFunc();
   }
@@ -78,7 +81,7 @@ export class ProductComponent implements OnInit {
     this.cartNumFunc();
   }
 
-  // -----------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------------------
   cartNumber: number = 0;
   cartNumFunc() {
     let cartVal = JSON.parse(localStorage.getItem('localCart'));

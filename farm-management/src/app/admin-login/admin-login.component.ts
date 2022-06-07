@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
     this.adminForm = this.fb.group({
       userid: ['', Validators.required],
       pwd: ['', Validators.required],
-      type: ['admin'],
+      type: ['user'],
     });
   }
   get userid() {

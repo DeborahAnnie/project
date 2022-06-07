@@ -23,27 +23,17 @@
                     <span *ngIf="f.lastname.errors.required">Lastname is required!</span>
                 </div>
             </div>
-            <div> <label>Email Id :</label>
-                <input type="text" name="emailid" class="form-control" id="emailid" formControlName="emailid" />
-                <div class="help-block" *ngIf="f.emailid.invalid && f.emailid.touched">
-                    <span *ngIf="f.emailid.errors.required">Email is required!</span>
-                </div>
-            </div>
             <div> <label>Aadhar Number :</label>
                 <input type="number" name="aadhar" class="form-control" id="aadhar" formControlName="aadhar"
                     placeholder="eg:xxxx xxxx xxxx">
                 <div class="help-block" *ngIf="f.aadhar.invalid && f.aadhar.touched">
                     <span *ngIf="f.aadhar.errors?.required">Aadhar Number is required</span>
-                    <span *ngIf="f.aadhar.errors?.minlength">Aadhar Number must be a of 12 numbers</span>
-                    <span *ngIf="f.aadhar.errors?.maxlength">Aadhar Number must be a of 12 numbers</span>
                 </div>
             </div>
             <div> <label>Mobile Number :</label>
                 <input type="number" name="mobile" class="form-control" id="mobile" formControlName="mobile">
                 <div class="help-block" *ngIf="f.mobile.invalid && f.mobile.touched">
                     <span *ngIf="f.mobile.errors?.required">Mobile Number is required</span>
-                    <span *ngIf="f.mobile.errors?.minlength">Mobile Number must be a of 10 numbers</span>
-                    <span *ngIf="f.mobile.errors?.maxlength">Mobile Number must not be more than 12 numbers</span>
                 </div>
             </div>
             <div> <label>Age :</label>
@@ -58,6 +48,51 @@
                     <span *ngIf="f.add.errors?.required">Address is required</span>
                 </div>
             </div>
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+                <em class="fa fa-cc-visa" style="color:navy;"></em>
+                <em class="fa fa-cc-amex" style="color:blue;"></em>
+                <em class="fa fa-cc-mastercard" style="color:red;"></em>
+                <em class="fa fa-cc-discover" style="color:orange;"></em>
+            </div>
+            <div>
+                <label for="cname">Name on Card</label>
+                <input type="text" id="cname" name="cardname" formControlName="cardname">
+                <div class="help-block" *ngIf="f.cardname.invalid && f.cardname.touched">
+                    <span *ngIf="f.cardname.errors?.required">Cardname is required</span>
+                </div>
+            </div>
+            <div>
+                <label for="ccnum">Credit card number</label>
+                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"
+                    formControlName="cardnumber">
+                <div class="help-block" *ngIf="f.cardnumber.invalid && f.cardnumber.touched">
+                    <span *ngIf="f.cardnumber.errors?.required">Cardname is required</span>
+                </div>
+            </div>
+            <div>
+                <label for="expmonth">Exp Month</label>
+                <input type="text" id="expmonth" name="expmonth" formControlName="expmonth">
+                <div class="help-block" *ngIf="f.expmonth.invalid && f.expmonth.touched">
+                    <span *ngIf="f.expmonth.errors?.required">Cardname is required</span>
+                </div>
+            </div>
+            <div>
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" formControlName="expyear">
+                <div class="help-block" *ngIf="f.expyear.invalid && f.expyear.touched">
+                    <span *ngIf="f.expyear.errors?.required">Cardname is required</span>
+                </div>
+            </div>
+            <div>
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" formControlName="cvv">
+                <div class="help-block" *ngIf="f.cvv.invalid && f.cvv.touched">
+                    <span *ngIf="f.cvv.errors?.required">Cardname is required</span>
+                </div>
+            </div>
+
             <button class="btn" type="submit">Submit</button>
         </form>
     </div>

@@ -18,11 +18,15 @@ export class UserInfoComponent implements OnInit {
   user: any = {
     firstname: '',
     lastname: '',
-    emailid: '',
     aadhar: '',
     mobile: '',
     age: '',
     add: '',
+    cardname: '',
+    cardnumber: '',
+    expmonth: '',
+    expyear: '',
+    cvv: '',
     user: '',
   };
   userData: any;
@@ -43,26 +47,16 @@ export class UserInfoComponent implements OnInit {
     this.myform = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      emailid: ['', [Validators.required, Validators.email]],
-      aadhar: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(12),
-          Validators.maxLength(12),
-        ],
-      ],
-      mobile: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(12),
-        ],
-      ],
+      aadhar: ['', [Validators.required]],
+      mobile: ['', [Validators.required]],
       age: ['', Validators.required],
       add: ['', Validators.required],
-      type: ['information'],
+      cardname: ['', Validators.required],
+      cardnumber: ['', Validators.required],
+      expmonth: ['', Validators.required],
+      expyear: ['', Validators.required],
+      cvv: ['', Validators.required],
+      type: ['userInfo'],
       user: this.id,
     });
   }
@@ -74,24 +68,12 @@ export class UserInfoComponent implements OnInit {
   submit() {
     console.log(this.myform.value);
 
-    const userInfo = {
-      firstname: this.myform.value.firstname,
-      lastname: this.myform.value.lastname,
-      emailid: this.myform.value.emailid,
-      aadhar: this.myform.value.aadhar,
-      mobile: this.myform.value.mobile,
-      age: this.myform.value.age,
-      add: this.myform.value.add,
-      type: 'information',
-      user: this.id,
-    };
-
     this.couchdbsvc
       .postDetails(this.myform.value, 'demo_database')
       .subscribe((data) => {
         console.log(data);
         console.log('Success');
+        this.toast.success('Your Details are recorded successfully!');
       });
-    this.toast.success('Your Details are recorded successfully!');
   }
 }

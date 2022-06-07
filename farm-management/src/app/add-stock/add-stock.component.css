@@ -96,7 +96,6 @@ select{
   background-color:white;
   color:rgb(63, 19, 19);
   transition: 0.3s;
-  border: 1px solid black;
   font-style: italic;
   font-size: 20px;
 }

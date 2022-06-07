@@ -59,15 +59,6 @@ export class AddProductComponent {
   add() {
     console.log(this.prodForm.value);
 
-    const prod = {
-      productName: this.prodForm.value.productName,
-      img: this.prodForm.value.productId,
-      category: this.prodForm.value.category,
-      productPrice: this.prodForm.value.productPrice,
-      productQnt: this.prodForm.value.productQnt,
-      type: 'product',
-    };
-
     this.dbsvc
       .postDetails(this.prodForm.value, 'demo_database')
       .subscribe((data) => {

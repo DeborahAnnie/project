@@ -57,6 +57,21 @@ export class CouchServiceService {
     });
   }
 
+  prodDetails1(selectorObject: any, db: string) {
+    const url = `${
+      this.endpoint + db
+    }/_design/productView/_view/product?include_docs=true&keys=["${selectorObject}"]`;
+    const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
+    const object = {
+      selector: {
+        type: selectorObject,
+      },
+    };
+    return this.http.post(url, object, {
+      headers: { Authorization: basicAuth },
+    });
+  }
+
   add(db: any, doc: object): Observable<{}> {
     console.log(doc);
     const url = this.endpoint + db;

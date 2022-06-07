@@ -65,12 +65,6 @@ export class AddStockComponent implements OnInit {
   addStock() {
     console.log(this.stockForm.value);
 
-    const stock = {
-      productName: this.stockForm.value.stockName,
-      stockTot: this.stockForm.value.stockTot,
-      type: 'stock',
-    };
-
     this.dbsvc
       .postDetails(this.stockForm.value, 'demo_database')
       .subscribe((data) => {
