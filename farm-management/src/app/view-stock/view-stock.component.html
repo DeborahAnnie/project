@@ -1,16 +1,43 @@
-<section class="cart_section">
-    <div class="container">
-        <h2>Total Stock</h2>
+<button class="btn" (click)="logOut()">Log Out</button>
+<button class="btn"><a href="addproduct">Add Product</a></button>
+<hr>
 
-        <table>
-            <caption>
-            <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-            </tr>
-            <tr *ngFor="let stock of getStock">
-                <td>{{stock.productName}}</td>
-                <td>{{stock.totQnt - stock.productQnt | number}}</td>
-            </tr>
-            </caption>
-        </table>
+<body>
+    <div class="cart_section">
+        <div class="container">
+            <h2>Total Stock</h2>
+
+            <table *ngIf="getStock">
+                <caption>Stock
+                </caption>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Total</th>
+                    <th>Order Total</th>
+                </tr>
+                <tr *ngFor="let stock of getStock">
+                    <td *ngIf="stock.product">{{stock.product.productName}}</td>
+                    <td>{{stock.total}}</td>
+                    <td>{{stock.bln}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="container">
+            <h2>User's Order</h2>
+
+            <table *ngIf="getProduct">
+                <caption>Stock
+                </caption>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr *ngFor="let view of getProduct">
+                    <td>{{view.productName}}</td>
+                    <td>{{view.quantity}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

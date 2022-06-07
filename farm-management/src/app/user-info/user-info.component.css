@@ -27,7 +27,7 @@ body {
   padding: 40px;
   box-sizing: border-box;
   background: #ecf0f3;
-  box-shadow: 10px 14px 10px #cbced1, -14px -4px 10px white;
+  box-shadow: 4px 4px 6px #cbced1, -10px -4px 10px white;
 }
 
 .brand-logo {
@@ -109,6 +109,7 @@ a {
   right: 4px;
   text-decoration: none;
   padding: 2px;
+  margin-left: 600px;
 }
 
 h1 {

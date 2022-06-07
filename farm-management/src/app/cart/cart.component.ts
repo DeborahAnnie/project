@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CouchServiceService } from '../couch-service.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   userData: any;
   products = [];
-  constructor(private svc: CouchServiceService, private router: Router) {}
+  constructor(
+    private svc: CouchServiceService,
+    private router: Router,
+    private toast: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.cartDetails();
@@ -41,7 +46,7 @@ export class CartComponent implements OnInit {
     this.total = 0;
   }
 
-  // ---------------------------------------------
+  // -------------------------------------------------------------------------
   cartItem: number = 0;
   cartFunc() {
     if (localStorage.getItem('localCart') != null) {
@@ -60,34 +65,39 @@ export class CartComponent implements OnInit {
   // --------------------------------------------------------------------------
   post() {
     this.userData = JSON.parse(localStorage.getItem('localS') || '{}');
+    console.log(this.userData);
 
     const information = {
-      type: 'addProd',
-      user: this.userData.id,
+      type: 'order',
+      user: this.userData.docs[0]._id,
     };
 
     this.svc.add('demo_database', information).subscribe(
       (res: any) => {
-        console.log(res);
-        const oderId = res.id;
+        console.log('cart', res);
+        const orderId = res.id;
         let taskList: any = [];
+        this.products = JSON.parse(localStorage.getItem('localCart'));
         this.products.forEach((element) => {
-          const orderInfo = {
-            order: oderId,
+          const orderInformation = {
+            order: orderId,
             product: element['_id'],
+            productName: element['productName'],
             quantity: element['productQnt'],
             price: element['productPrice'],
-            type: 'orderInfo',
+            type: 'orderInformation',
           };
           taskList.push(
-            this.svc.add('demo_database', orderInfo).subscribe((_res: any) => {
-              return res;
-            })
+            this.svc
+              .add('demo_database', orderInformation)
+              .subscribe((_res: any) => {
+                console.log('after pushed', res);
+                return res;
+              })
           );
         });
-        Promise.all(taskList).then((result) => {
-          console.log(result);
-          alert('Your product was created successfully!');
+        Promise.all(taskList).then((_result) => {
+          this.toast.success('Your product was added successfully!');
         });
       },
       (rej) => {
@@ -98,7 +108,7 @@ export class CartComponent implements OnInit {
   orderDetails() {
     let data = {
       selector: {
-        type: 'addProd',
+        type: 'order',
         user: this.userData.id,
       },
     };

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CouchServiceService } from '../couch-service.service';
 import { Router } from '@angular/router';
-// import { isMaster } from 'cluster';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-product',
@@ -21,8 +21,7 @@ export class AddProductComponent implements OnInit {
     category: '',
     productPrice: '',
     productQnt: '',
-    totQnt: '',
-    type: 'addProd',
+    type: 'product',
     user: this.userData.id,
   };
 
@@ -30,7 +29,8 @@ export class AddProductComponent implements OnInit {
     private fb: FormBuilder,
     private dbsvc: CouchServiceService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {
     this.prodForm = this.fb.group({
       productName: [''],
@@ -38,8 +38,7 @@ export class AddProductComponent implements OnInit {
       category: [''],
       productPrice: [''],
       productQnt: [''],
-      totQnt: [''],
-      type: ['addProd'],
+      type: ['product'],
     });
   }
 
@@ -60,9 +59,6 @@ export class AddProductComponent implements OnInit {
   get productQnt() {
     return this.prodForm.controls;
   }
-  get totQnt() {
-    return this.prodForm.controls;
-  }
 
   add() {
     console.log(this.prodForm.value);
@@ -73,8 +69,8 @@ export class AddProductComponent implements OnInit {
       category: this.prodForm.value.category,
       productPrice: this.prodForm.value.productPrice,
       productQnt: this.prodForm.value.productQnt,
-      totQnt: this.prodForm.value.totQnt,
-      type: 'addProd',
+      // totQnt: this.prodForm.value.totQnt,
+      type: 'product',
     };
 
     this.dbsvc
@@ -83,6 +79,7 @@ export class AddProductComponent implements OnInit {
         console.log(data);
         console.log('Successful!');
       });
+    this.toast.success('Your product was added successfully!');
   }
 
   logOut() {
@@ -91,11 +88,9 @@ export class AddProductComponent implements OnInit {
   }
 
   ProductDetails() {
-    //add selector
-
     let datas = {
       selector: {
-        type: 'addProd',
+        type: 'product',
         user: this.userData.id,
       },
     };

@@ -124,13 +124,9 @@ h4{
     #010e02 59%,
   chartreuse 100%
   );
-  background-size: auto auto;
-  /* background-clip: border-box;
-  background-size: 200% auto; */
+  background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  /* text-fill-color: transparent; */
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 5s linear infinite;
   display: block;
@@ -145,4 +141,10 @@ h4{
 
 .image{
   float:right;
+}
+img:hover{
+  -moz-box-shadow: 8 0 10px #ccc;
+  -webkit-box-shadow: 0 5 10px #ccc;
+  box-shadow: 0 0 10px rgb(177, 173, 173);
+  transform: scale(1.0);
 }

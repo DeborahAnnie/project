@@ -20,20 +20,11 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const selector = {
-      type: 'addProd',
-    };
-
-    this.svc.prodDetails(selector, 'demo_database').subscribe((datas: any) => {
+    this.svc.prodDetails('product', 'demo_database').subscribe((datas: any) => {
       console.log('stock', datas);
       this.product = datas;
       this.productArray = this.filterCategory = this.product = datas['docs'];
       this.filterCategory = this.filterCategory.rows;
-      // console.log('worked', this.filterCategory);
-
-      // this.svc.search.subscribe((val: any) => {
-      //   this.searchKey = val;
-      // });
     });
 
     this.cartFunc();

@@ -4,7 +4,6 @@ const cors = require('cors');
 const dbconnection =require('./nanodb');
 const app = express();
 const port = 8000;
-// var urlParser = bodyParser.urlencoded({extended:false});
 
  app.use(cors({
  origin: 'http://localhost:4200',
@@ -63,7 +62,7 @@ app.post("/postdata1", function (req, res) {
     "selector" :{
       userid :objectnew1.userid,
       pwd :objectnew1.pwd,
-      type:"admin"
+      type:"user"
     }
   }
   console.log(fetchData)

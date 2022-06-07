@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Observable } from 'rxjs';
-// import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +24,7 @@ export class CouchServiceService {
   constructor(private http: HttpClient) {
     console.log('working');
   }
+
   postDetails(formValues: any, db: any) {
     const url = this.endpoint + db;
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
@@ -38,14 +38,20 @@ export class CouchServiceService {
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
     return this.http.get(url, { headers: { Authorization: basicAuth } });
   }
-
+  getAllDocsByKeys(db: any, data: any) {
+    const url = this.endpoint + db + '/_all_docs?include_docs=true';
+    const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
+    return this.http.post(url, data, { headers: { Authorization: basicAuth } });
+  }
   cartSubject = new Subject<any>();
 
   prodDetails(selectorObject: any, db: string) {
     const url = `${this.endpoint + db}/_find`;
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
     const object = {
-      selector: selectorObject,
+      selector: {
+        type: selectorObject,
+      },
     };
     return this.http.post(url, object, {
       headers: { Authorization: basicAuth },
@@ -56,6 +62,14 @@ export class CouchServiceService {
     console.log(doc);
     const url = this.endpoint + db;
     return this.http.post(url, doc, this.httpOptions);
+  }
+
+  fetchDataUsingFind(db: string, querObj: any) {
+    const geturl = this.endpoint + db + '/_find';
+    let dataObject = {
+      selector: querObj,
+    };
+    return this.http.post(geturl, dataObject, this.httpOptions);
   }
 
   // getProducts() {

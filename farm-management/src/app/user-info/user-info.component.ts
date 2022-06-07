@@ -23,6 +23,7 @@ export class UserInfoComponent implements OnInit {
     mobile: '',
     age: '',
     add: '',
+    user: '',
   };
   userData: any;
   userId: any;
@@ -32,6 +33,13 @@ export class UserInfoComponent implements OnInit {
     private couchdbsvc: CouchServiceService,
     private http: HttpClient
   ) {
+    this.userData = JSON.parse(localStorage.getItem('localS') || '{}');
+    this.userId = this.userData;
+    this.id = this.userId.docs[0]._id;
+    console.log('Master Id', this.id);
+  }
+
+  ngOnInit(): void {
     this.myform = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -55,13 +63,11 @@ export class UserInfoComponent implements OnInit {
       age: ['', Validators.required],
       add: ['', Validators.required],
       type: ['information'],
+      user: this.id,
     });
   }
 
-  ngOnInit(): void {}
-
   get f(): { [key: string]: AbstractControl } {
-    // console.log(this.myform.controls);
     return this.myform.controls;
   }
 
@@ -77,6 +83,7 @@ export class UserInfoComponent implements OnInit {
       age: this.myform.value.age,
       add: this.myform.value.add,
       type: 'information',
+      user: this.id,
     };
 
     this.couchdbsvc
@@ -84,11 +91,6 @@ export class UserInfoComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         console.log('Success');
-        // this.myform.reset();
       });
-    this.userData = JSON.parse(localStorage.getItem('localS') || '{}');
-    this.userId = this.userData;
-    this.id = this.userId._id;
-    console.log('Master Id', this.id);
   }
 }

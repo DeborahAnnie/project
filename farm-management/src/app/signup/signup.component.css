@@ -7,7 +7,6 @@ body {
 	color:#fff;
 	font-family: 'Poppins', sans-serif;
 	background-repeat: no-repeat;
-	/* width: 1000px; */
 }
 
 .container {
@@ -15,16 +14,10 @@ body {
     grid-template-columns: 700px 2fr ;
 	align-items: center;
 	justify-content: center;
-	/* flex-wrap: wrap; */
 	max-width: 1200px;
 	margin: 0 auto;
 	min-height: 100vh;
 }
-
-/* .container > div {
-	flex: 1;
-	padding: 0 20px;
-} */
 
 h1 {
 	font-size: 40px;
@@ -36,8 +29,6 @@ p {
 	font-size: 15px;
 	opacity: 0.8;
 }
-
-
 
 .form-control {
 	position: relative;

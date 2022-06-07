@@ -3,12 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     display: grid;
     place-items: center;
     background: #4f6d7a;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .clipper {
     display: flex;
     flex-direction: row;
@@ -88,37 +90,10 @@ body{
     }
 } 
 
-
-
-/* .slider{
-    height: 90%;
-    width: 80%;
-    background: url(../../images/crops.jpg);
-    background-repeat: no-repeat;
-    animation: slide 20s infinite;
-    margin: 100px auto;
+img:hover{
+    -moz-box-shadow: 8 0 10px #ccc;
+    -webkit-box-shadow: 0 5 10px #ccc;
+    box-shadow: 0 0 10px rgb(177, 173, 173);
+    transform: scale(1.2);
 }
 
-@keyframes slide{
-    25%{
-        background: url(../../images/fertii.jpg);
-    background-repeat: no-repeat;
-
-    }
-    50%{
-        background: url(../../images/pestii.jpg);
-    background-repeat: no-repeat;
-
-    } 
-    75%{
-        background: url(../../images/crop1.jpg);
-    background-repeat: no-repeat;
-
-    } 
-    100%{
-        background: url(../../images/farmm.jpeg);
-    background-repeat: no-repeat;
-
-    }
-
-} */

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormServiceService } from '../form-service.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -42,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.loginform = this.fb.group({
       username: [''],
       Password: ['', [Validators.minLength(8)]],
+      type: ['user'],
     });
   }
   get username() {
@@ -55,12 +55,13 @@ export class LoginComponent implements OnInit {
     this.api.test_get(Formvalue.username).subscribe((data) => {
       console.log('data returned from server', data);
       const loginData = { response: JSON.stringify(data.docs[0]) };
+      localStorage.setItem('localS', JSON.stringify(data));
+
       if (data.docs.length <= 0) {
         this.toastr.error('Please Register');
       }
       if (data.docs[0].username === Formvalue.username) {
         if (data.docs[0].Password === Formvalue.Password) {
-          // localStorage.setItem('usrData', JSON.stringify(data.docs[0]));
           this.router.navigate(['user'], {
             queryParams: loginData,
           });
@@ -72,16 +73,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.toastr.error('Please Register');
       }
-
-      let datas = {
-        fullname: data['docs'][0].name,
-        username: data['docs'][0].username,
-        emailId: data['docs'][0].email,
-        Password: data['docs'][0].Password,
-        confirmPassword: data['docs'][0].confirmPassword,
-        id: data['docs'][0]._id,
-      };
-      localStorage.setItem('localS', JSON.stringify(data));
     });
   }
 }
