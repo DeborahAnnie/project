@@ -39,4 +39,13 @@ export class FormServiceService {
     console.log('call', id);
     return this.http.get<any>('http://localhost:8000/getdata/' + id);
   }
+
+  db = 'demo_database';
+  Validation(query: any) {
+    const url = `${this.url + this.db}/_find`;
+    const selectorData = {
+      selector: query,
+    };
+    return this.http.post(url, selectorData, this.httpOptions);
+  }
 }

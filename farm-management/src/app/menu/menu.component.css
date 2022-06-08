@@ -17,10 +17,10 @@ a {
   position: relative;
   top:-20px;
   border:none;
+  text-shadow: 1px 0 2px #f1eded, 10px 2px 3px #3fdb61;
 }
 .btn1:hover{
  font-family: fantasy;
-  color: white;
   font-weight: bolder;
   transition: 0.3s;
   padding: 8px;

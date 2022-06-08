@@ -9,6 +9,7 @@ import Validation from '../../../validation';
 import { FormServiceService } from '../form-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -31,7 +32,8 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     public svc: FormServiceService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.checkout = this.fb.group({
       fullName: [this.userRecord.fullname],
@@ -61,7 +63,7 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       {
-        validators: [Validation.match('password', 'confirmPassword')],
+        validators: [Validation.match('Password', 'confirmPassword')],
       }
     );
   }
@@ -82,5 +84,27 @@ export class SignupComponent implements OnInit {
     }
 
     console.log(JSON.stringify(this.checkout.value, null, 2));
+  }
+
+  validateEmail() {
+    const emailValue = this.checkout.value['email'];
+    const query = {
+      email: emailValue,
+      type: 'user',
+    };
+    this.svc.Validation(query).subscribe(
+      (response: any) => {
+        console.log(response);
+        if (response.docs.length > 1) {
+          this.toastr.error('email already exist');
+          this.submitted = false;
+        } else {
+          this.submitted = true;
+        }
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 }

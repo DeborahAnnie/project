@@ -1,25 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-
-body {
-  margin: 0;
-  width: 100vw;
-  height: 200vh;
-  background: #ecf0f3;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  place-items: center;
-  overflow: hidden;
-  font-family: poppins,sans-serif;
+body{
+  height: 800px;
 }
-
 .container {
   margin-left: 400px;
+  margin-top: 100px;
   position: relative;
   width: 550px;
-  height: 1350px;
+  height: 1300px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -114,9 +103,10 @@ header{
     color: white;
     outline: none;
     border: none;
-    /* margin-left: 20px; */
-    right: 30px;
+    /* right: 30px; */
     position: relative;
+    font-size: 15px;
+    cursor: pointer;
 }
 a {
     color:whitesmoke;
@@ -146,3 +136,40 @@ a {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
   }
+
+/* ------------------------------------------------------------------------------ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 3px solid rgb(202, 168, 168);
+  margin-top: 100px;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+th{
+  font-weight:bolder;
+}
+tr:nth-child(even) {
+  background-color: #70dd9d;
+}
+.container1{
+  height: 600px;
+}
+
+h2{
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  /* margin-bottom: 60px; */
+  font-weight: bold;
+  padding-left: 10px;
+}
