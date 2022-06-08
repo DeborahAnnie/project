@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dbconnection =require('./nanodb');
-const app = express();
+let app = express();
 const port = 8000;
 
  app.use(cors({

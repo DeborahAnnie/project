@@ -74,7 +74,3 @@ export class AddStockComponent implements OnInit {
     this.toast.success('Your product stock was added successfully!');
   }
 }
-
-function productfetch() {
-  throw new Error('Function not implemented.');
-}
