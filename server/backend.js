@@ -3,6 +3,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dbconnection =require('./nanodb');
 const app = express();
+app.disable("x-powered-by");
+let helmet = require("helmet");
+app.use(helmet.hidePoweredBy());
+
 const port = 8000;
 
  app.use(cors({
@@ -30,7 +34,7 @@ app.get('/getdata/:id',(req,res)=>{
 })
 
 app.post('/postdata',(req,res)=> {
-  
+  console.log("********");
 let objectnew = {
   fullname:req.body.fullname,
   username:req.body.username,
@@ -42,15 +46,24 @@ let objectnew = {
   console.log("data from angular",objectnew);
   dbconnection.testdb.insert(objectnew).then((data)=>{
   console.log("data inserted successfully ",data);
+  let data1;
+    
   if(data){
-    res.status(200).send({
-      message:"successfully generated"
-    })
+    data1 ={
+      message: 'Registered Successfully',
+      status: "success",
+      response: data
+    }
   }
+  res.send(data1);
 }).catch((err)=>{
-console.log("Error from server",err);
-res.send("Server Down Can't fetch Details");
+res.status(400).send({
+  message: 'failed to register',
+  status: "error",
+  err: err
+});
 })
+
 })
 
 app.post("/postdata1", function (req, res) {
@@ -68,7 +81,10 @@ app.post("/postdata1", function (req, res) {
   console.log(fetchData)
   dbconnection.admin.find(fetchData).then((data) => {
    res.send(data);
-  });
+  })
+  .catch((err=>{
+    console.log("error",err);
+  }))
 });
 
 app.listen(port, (err) => {

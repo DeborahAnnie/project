@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FormServiceService {
   public endpt =
-    'https://5804af1c-53d6-4cc1-b0eb-5219a1cc5775-bluemix.cloudant.com';
+    'https://5804af1c-53d6-4cc1-b0eb-5219a1cc5775-bluemix.cloudant.com/';
   public password = 'ee0e39016c30dc0fc4fd04d12a420174';
   public username = 'apikey-v2-380rhhqzbqk6eifbn30gvuevzk9903pdrrsd7f8ipknj';
   basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
@@ -42,7 +42,7 @@ export class FormServiceService {
 
   db = 'demo_database';
   Validation(query: any) {
-    const url = `${this.url + this.db}/_find`;
+    const url = `${this.endpt + this.db}/_find`;
     const selectorData = {
       selector: query,
     };

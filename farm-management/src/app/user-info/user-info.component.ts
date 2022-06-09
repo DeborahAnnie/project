@@ -83,14 +83,33 @@ export class UserInfoComponent implements OnInit {
 
   submit() {
     console.log(this.myform.value);
-    this.couchdbsvc
-      .postDetails(this.myform.value, 'demo_database')
-      .subscribe((data) => {
+    this.couchdbsvc.postDetails(this.myform.value, 'demo_database').subscribe(
+      (data) => {
         console.log(data);
         console.log('Success');
         this.toast.success('Your Details are recorded successfully!');
-      });
+
+        this.myform.reset();
+      },
+      (err) => {
+        this.toast.error('Form Failed to Display', err);
+      }
+    );
   }
+
+  // edit() {
+  //   this.couchdbsvc
+  //     .updateData(res, 'demo_database', this.id, rev)
+  //     .subscribe((res) => {
+  //       console.log(res);
+
+  //       this.fetchBookingData();
+  //     });
+  // }
+  // fetchBookingData() {
+  //   throw new Error('Method not implemented.');
+  // }
+
   logOut() {
     localStorage.clear();
     this.router.navigate([''], {});

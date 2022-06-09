@@ -97,7 +97,9 @@ export class CartComponent implements OnInit {
           );
         });
         Promise.all(taskList).then((_result) => {
-          this.toast.success('Your product was added successfully!');
+          this.toast.success(
+            'Your product was added successfully and will be deliverd!'
+          );
         });
       },
       (rej) => {
@@ -105,12 +107,4 @@ export class CartComponent implements OnInit {
       }
     );
   }
-  // orderDetails() {
-  //   let data = {
-  //     selector: {
-  //       type: 'order',
-  //       user: this.userData.id,
-  //     },
-  //   };
-  // }
 }

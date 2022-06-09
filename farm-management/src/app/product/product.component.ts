@@ -11,6 +11,8 @@ export class ProductComponent implements OnInit {
   public product: any;
   public productArray: any = [];
   public filterCategory: any;
+  public searchTerm!: string;
+  searchKey: string = '';
   constructor(private svc: CouchServiceService, private router: Router) {
     this.svc.cartSubject.subscribe((data) => {
       this.cartItem = data;
@@ -29,7 +31,9 @@ export class ProductComponent implements OnInit {
             datas.rows.map((x) => x.doc);
         this.filterCategory = this.filterCategory.rows;
       });
-
+    this.svc.search.subscribe((val: any) => {
+      this.searchKey = val;
+    });
     this.cartFunc();
   }
 
@@ -41,8 +45,14 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.svc.search.next(this.searchTerm);
+  }
+
   inc(prd) {
-    if (prd.productQnt != 50) {
+    if (prd.productQnt != 100) {
       prd.productQnt += 1;
     }
   }

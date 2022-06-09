@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       console.log('User Data', res);
       this.previousDataObject = res;
     });
+
     this.loginform = this.fb.group({
       username: [this.loginrecord.username],
       Password: [this.loginrecord.Password],
@@ -70,8 +71,6 @@ export class LoginComponent implements OnInit {
         } else {
           this.toastr.error('Enter Correct Password ');
         }
-      } else {
-        this.toastr.error('Please Register');
       }
     });
   }

@@ -36,15 +36,12 @@ export class AdminLoginComponent implements OnInit {
   submit(Formvalue: any) {
     console.log('from form', Formvalue);
     this.api.storeData(Formvalue).subscribe((data) => {
-      if (data.docs[0].userid === Formvalue.userid) {
-        if (data.docs[0].pwd === Formvalue.pwd) {
-          this.router.navigate(['addproduct'], {});
-          this.toastr.success('Login successfully');
-        }
+      if (data.docs.length > 0) {
+        this.router.navigate(['addproduct'], {});
+        this.toastr.success('Login successfully');
       } else {
         this.toastr.error('enter valid username and password');
       }
-      console.log('data returned from server', data);
     });
   }
 }

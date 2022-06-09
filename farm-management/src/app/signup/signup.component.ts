@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   submitted = true;
   userRecord: any = {
     fullName: '',
-    aadhar: '',
+    username: '',
     email: '',
     Password: '',
     Confirmpassword: '',
@@ -37,8 +37,8 @@ export class SignupComponent implements OnInit {
   ) {
     this.checkout = this.fb.group({
       fullName: [this.userRecord.fullname],
-      username: [this.userRecord.aadhar],
-      email: [this.userRecord.emailId],
+      username: [this.userRecord.username],
+      email: [this.userRecord.email],
       Password: [this.userRecord.Password],
       Confirmpassword: [this.userRecord.Confirmpassword],
       type: [],
@@ -52,14 +52,7 @@ export class SignupComponent implements OnInit {
         username: ['', [Validators.required, Validators.minLength(6)]],
         email: ['', [Validators.required, Validators.email]],
         type: ['user'],
-        Password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40),
-          ],
-        ],
+        Password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
       },
       {
@@ -79,10 +72,9 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
     if (this.checkout.valid) {
       this.router.navigate(['/login']);
-
+      this.toastr.success('Registered Successfully');
       return;
     }
-
     console.log(JSON.stringify(this.checkout.value, null, 2));
   }
 
@@ -96,7 +88,29 @@ export class SignupComponent implements OnInit {
       (response: any) => {
         console.log(response);
         if (response.docs.length > 1) {
-          this.toastr.error('email already exist');
+          this.toastr.error('Email already exist');
+          this.submitted = false;
+        } else {
+          this.submitted = true;
+        }
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+  }
+
+  validateUname() {
+    const userName = this.checkout.value['username'];
+    const query = {
+      username: userName,
+      type: 'user',
+    };
+    this.svc.Validation(query).subscribe(
+      (response: any) => {
+        console.log(response);
+        if (response.docs.length > 1) {
+          this.toastr.error('Username already exist');
           this.submitted = false;
         } else {
           this.submitted = true;

@@ -72,13 +72,4 @@ export class AddProductComponent {
     this.router.navigate([''], {});
     alert('Your account will be logged out!');
   }
-
-  // ProductDetails() {
-  //   let datas = {
-  //     selector: {
-  //       type: 'product',
-  //       user: this.userData.id,
-  //     },
-  //   };
-  // }
 }
