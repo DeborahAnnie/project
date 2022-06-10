@@ -92,23 +92,11 @@ export class UserInfoComponent implements OnInit {
         this.myform.reset();
       },
       (err) => {
-        this.toast.error('Form Failed to Display', err);
+        this.toast.error('Form Failed to be added fill all the fields!');
+        console.log(err);
       }
     );
   }
-
-  // edit() {
-  //   this.couchdbsvc
-  //     .updateData(res, 'demo_database', this.id, rev)
-  //     .subscribe((res) => {
-  //       console.log(res);
-
-  //       this.fetchBookingData();
-  //     });
-  // }
-  // fetchBookingData() {
-  //   throw new Error('Method not implemented.');
-  // }
 
   logOut() {
     localStorage.clear();

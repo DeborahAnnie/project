@@ -37,11 +37,13 @@ export class CouchServiceService {
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
     return this.http.get(url, { headers: { Authorization: basicAuth } });
   }
+
   getAllDocsByKeys(db: any, data: any) {
     const url = this.endpoint + db + '/_all_docs?include_docs=true';
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
     return this.http.post(url, data, { headers: { Authorization: basicAuth } });
   }
+
   cartSubject = new Subject<any>();
 
   prodDetails(selectorObject: any, db: string) {
@@ -95,11 +97,5 @@ export class CouchServiceService {
       selector: querObj,
     };
     return this.http.post(geturl, dataObject, this.httpOptions);
-  }
-
-  updateData(changedValue: object, db: string, id: number, rev: number) {
-    const changeObj = changedValue;
-    const url = `${this.endpoint + db}/${id}?rev=${rev}`;
-    return this.http.put(url, changeObj, this.httpOptions);
   }
 }

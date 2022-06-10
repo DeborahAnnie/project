@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import Validation from '../../../validation';
 import { FormServiceService } from '../form-service.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -27,11 +26,11 @@ export class SignupComponent implements OnInit {
     Confirmpassword: '',
     type: '',
   };
+  checkUsername: any;
 
   constructor(
     private fb: FormBuilder,
     public svc: FormServiceService,
-    private http: HttpClient,
     private router: Router,
     private toastr: ToastrService
   ) {
@@ -66,59 +65,32 @@ export class SignupComponent implements OnInit {
 
   onSubmit(Formvalue: any): void {
     console.log('from form', Formvalue);
-    this.svc.storedata(Formvalue).subscribe((data: any) => {
-      console.log('data returned from server', data);
-    });
-    this.submitted = true;
+    this.svc.storedata(Formvalue).subscribe(
+      (data: any) => {
+        console.log('data returned from server', data);
+      },
+      (err) => {
+        this.toastr.error('Form Failed to Register');
+        console.log(err);
+      }
+    );
     if (this.checkout.valid) {
+      this.submitted = true;
       this.router.navigate(['/login']);
       this.toastr.success('Registered Successfully');
       return;
     }
-    console.log(JSON.stringify(this.checkout.value, null, 2));
   }
 
-  validateEmail() {
-    const emailValue = this.checkout.value['email'];
-    const query = {
-      email: emailValue,
-      type: 'user',
-    };
-    this.svc.Validation(query).subscribe(
-      (response: any) => {
-        console.log(response);
-        if (response.docs.length > 1) {
-          this.toastr.error('Email already exist');
-          this.submitted = false;
-        } else {
-          this.submitted = true;
-        }
-      },
-      (err) => {
-        console.error(err);
+  validation(event: any) {
+    console.log('event started');
+    console.log(event.target.value);
+    this.svc.Client(event.target.value).subscribe((data: any) => {
+      console.log('Email verification data from database', data);
+      if (data.docs[0].email == event.target.value) {
+        this.toastr.error('Email Already exit enter a vaild email');
+        this.checkout.controls['email'].setValue('');
       }
-    );
-  }
-
-  validateUname() {
-    const userName = this.checkout.value['username'];
-    const query = {
-      username: userName,
-      type: 'user',
-    };
-    this.svc.Validation(query).subscribe(
-      (response: any) => {
-        console.log(response);
-        if (response.docs.length > 1) {
-          this.toastr.error('Username already exist');
-          this.submitted = false;
-        } else {
-          this.submitted = true;
-        }
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    });
   }
 }

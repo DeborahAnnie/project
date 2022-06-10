@@ -48,4 +48,8 @@ export class FormServiceService {
     };
     return this.http.post(url, selectorData, this.httpOptions);
   }
+
+  Client(clientobject: any) {
+    return this.http.get<any>('http://localhost:8000/client/' + clientobject);
+  }
 }

@@ -34,7 +34,6 @@ app.get('/getdata/:id',(req,res)=>{
 })
 
 app.post('/postdata',(req,res)=> {
-  console.log("********");
 let objectnew = {
   fullname:req.body.fullname,
   username:req.body.username,
@@ -94,3 +93,24 @@ if (err) {
 
   console.log(`server is listening on http://localhost:${port}`);
  });
+
+
+ app.get("/Client/:data",(request,response) => {
+
+  console.log("data getted",request.params.data)
+
+  let logindetail = {
+    selector:{
+      "email":request.params.data,
+      "type":"user"
+    }
+  }
+    dbconnection.admin.find(logindetail).then((data) =>{
+      console.log('Data getted');
+      response.json(data);
+    }
+    )
+    .catch((err=>{
+      console.log("error",err);
+    }))
+})

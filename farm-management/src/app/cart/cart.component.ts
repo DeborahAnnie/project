@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
       console.log(this.getcartDetail, 'carddetail');
     }
   }
+
   total: number = 0;
   loadCart() {
     if (localStorage.getItem('localCart')) {
@@ -44,6 +45,8 @@ export class CartComponent implements OnInit {
     localStorage.removeItem('localCart');
     this.getcartDetail = [];
     this.total = 0;
+    this.cartItem = 0;
+    this.svc.cartSubject.next(this.cartItem);
   }
 
   // -------------------------------------------------------------------------

@@ -14,21 +14,15 @@
                 <div class="form-group">
                     <input type="text" id="username" formControlName="username" class="form-control"
                         placeholder="Enter username">
-                    <div class="help-block" *ngIf="username?.touched">
-                        <span *ngIf="username.errors?.required"> username is REQUIRED!!! </span>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="Password" formControlName="Password"
-                            placeholder="Password" name="Password"><br><br>
-                        <div class="help-block" *ngIf="Password?.touched">
-                            <span *ngIf="Password.errors?.required"> Password is REQUIRED!!! </span>
-                        </div>
-                    </div>
-                    <div><button type="submit" class="btn">Login</button></div>
-                    <p class="sign"> If you don't have an account,
-                        <button><a href="signup">Sign-Up</a></button>
-                    </p>
                 </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="Password" formControlName="Password"
+                        placeholder="Password" name="Password"><br><br>
+                </div>
+                <div><button type="submit" class="btn">Login</button></div>
+                <p class="sign"> If you don't have an account,
+                    <button><a href="signup">Sign-Up</a></button>
+                </p>
             </form>
         </div>
     </div>

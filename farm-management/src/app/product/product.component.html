@@ -1,41 +1,17 @@
 <header>
-    <div class="head">
-        <div class="item1">
-            <a (click)="filter('pesticides')">
-                <h3>Pesticides</h3>
-            </a>
-        </div>
-        <div class="item1">
-            <a (click)="filter('fertilizers')">
-                <h3>Fertilizers</h3>
-            </a>
-        </div>
-        <div class="item1">
-            <a (click)="filter('rice')">
-                <h3>Crops-Rice</h3>
-            </a>
-        </div>
-        <div class="item1">
-            <a (click)="filter('pulses')">
-                <h3>Crops-Pulses</h3>
-            </a>
-        </div>
+    <div class="navbar">
+        <a href="user">Your Details</a>
+        <a (click)="filter('pesticides')">Pesticides</a>
+        <a (click)="filter('fertilizers')">Fertilizers</a>
+        <a (click)="filter('rice')">Crops-Rice</a>
+        <a (click)="filter('pulses')">Crops-Pulses</a>
+        <input type="search" name="search" class="search-field" placeholder="Search the products🔎" size="16"
+            [(ngModel)]="searchTerm" (keyup)="search($event)">
+        <a href="cart"><em class="fa fa-shopping-cart"></em>{{cartItem}}</a>
+        <a class="right" (click)="logOut()">Logout</a>
     </div>
-    <div class="container">
-        <div class="col-md-12 text-right">
-            <div class="cart_icon" routerLink="/cart">
-                <em class="fa fa-shopping-cart"></em>
-                <div class="cart_value">
-                    {{cartItem}}
-                </div>
-            </div>
-            <button class="btn1"><a href="user">Your Information</a></button>
-        </div>
-    </div>
-    <button class="btn" (click)="logOut()">Log Out</button>
-    <input type="search" name="search" class="search-field" placeholder="Enter your product name..."
-        [(ngModel)]="searchTerm" (keyup)="search($event)">
 </header>
+
 <!-- ------------------------------------------------------------------------------------------------- -->
 
 <section class="product">
@@ -46,7 +22,7 @@
                     <div class="box">
                         <div class="product_name">
                             <h4>{{prd.productName}}</h4>
-                            <img src="{{prd.img}}" alt="" width="200px">
+                            <img src="{{prd.img}}" alt="products" width="200px">
                         </div>
                         <div class="content">
                             <h4>₹{{prd.productPrice}}</h4>
@@ -63,8 +39,10 @@
     </div>
     <br>
     <hr>
-    <h3>So here you can buy our Product with how much stocks you want!</h3><br>
-    <h3>It keeps on getting added freshly that you can buy anytime from anywhere</h3><br>
-    <h3>Enjoy your Shopping and have a Great day ahead</h3>
-
+    <div class="para">
+        <h3><em>
+                So here you can buy our Product with how much stocks you want!</em></h3><br>
+        <h3><em>It keeps on getting added freshly that you can buy anytime from anywhere</em></h3><br>
+        <h3><em>Enjoy your Shopping and have a Great day ahead</em></h3>
+    </div>
 </section>

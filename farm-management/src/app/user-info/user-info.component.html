@@ -1,8 +1,8 @@
 <header>
-    <div class="col-md-12 text-right">
+    <div class="navbar">
+        <a href="product">See Products</a>
+        <a (click)="logOut()" class="right">Logout</a>
     </div>
-    <a href="product">Products</a>
-    <button class="btn1" (click)="logOut()">Log Out</button>
 </header>
 
 <body *ngIf="mydata.length == 0">
@@ -122,7 +122,6 @@
             <td>{{info.mobile}}</td>
             <td>{{info.age}}</td>
             <td>{{info.add}}</td>
-            <!-- <button (click)="edit()">Edit</button> -->
         </tr>
     </table>
     <table *ngIf="userInf.length >= 1">
@@ -143,7 +142,6 @@
             <td>{{info.expmonth}}</td>
             <td>{{info.expyear}}</td>
             <td>{{info.cvv}}</td>
-            <!-- <button (click)="edit()">Edit</button> -->
         </tr>
     </table>
 </div>
