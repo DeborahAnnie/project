@@ -78,7 +78,6 @@ export class SignupComponent implements OnInit {
       this.submitted = true;
       this.router.navigate(['/login']);
       this.toastr.success('Registered Successfully');
-      return;
     }
   }
 
