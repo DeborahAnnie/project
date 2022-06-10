@@ -21,7 +21,6 @@ export class AddProductComponent {
     productPrice: '',
     productQnt: '',
     type: 'product',
-    user: this.userData.id,
   };
 
   constructor(
@@ -63,9 +62,8 @@ export class AddProductComponent {
       .postDetails(this.prodForm.value, 'demo_database')
       .subscribe((data) => {
         console.log(data);
-        console.log('Successful!');
+        this.toast.success('Your product was added successfully!');
       });
-    this.toast.success('Your product was added successfully!');
   }
 
   logOut() {

@@ -92,7 +92,6 @@ export class UserInfoComponent implements OnInit {
         this.myform.reset();
       },
       (err) => {
-        this.toast.error('Form Failed to be added fill all the fields!');
         console.log(err);
       }
     );

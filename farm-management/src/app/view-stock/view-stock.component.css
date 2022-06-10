@@ -68,7 +68,12 @@ body{
   tr:nth-child(even) {
     background-color: #faf4f4;
   }
+
+  tr:nth-child(odd) {
+  color: #faf4f4;
+  }
   
+
   .navbar {
     overflow: hidden;
     background-color: #333;

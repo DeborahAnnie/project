@@ -11,11 +11,11 @@
     <div class="center">
         <h1>Farm Stock Management</h1>
         <form [formGroup]="stockForm" (ngSubmit)="addStock()">
+            <label>Choose Product</label>
             <div class="inputbox">
                 <select id="productName" formControlName="productName" class="form-control">
                     <option value="{{prod['_id']}}" *ngFor="let prod of productInfo">{{prod.productName}}</option>
                 </select>
-                <span>Choose Product</span>
             </div>
             <div class="inputbox">
                 <input type="number" required="required" id="stockTot" formControlName="stockTot" class="form-control">

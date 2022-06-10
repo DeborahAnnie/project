@@ -70,7 +70,6 @@ export class SignupComponent implements OnInit {
         console.log('data returned from server', data);
       },
       (err) => {
-        this.toastr.error('Form Failed to Register');
         console.log(err);
       }
     );
@@ -82,9 +81,8 @@ export class SignupComponent implements OnInit {
   }
 
   validation(event: any) {
-    console.log('event started');
     console.log(event.target.value);
-    this.svc.Client(event.target.value).subscribe((data: any) => {
+    this.svc.mail(event.target.value).subscribe((data: any) => {
       console.log('Email verification data from database', data);
       if (data.docs[0].email == event.target.value) {
         this.toastr.error('Email Already exit enter a vaild email');

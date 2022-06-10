@@ -19,7 +19,6 @@ export class ViewStockComponent implements OnInit {
       .subscribe((datas: any) => {
         console.log('product', datas);
         this.productTemp = datas.docs;
-
         this.getProduct = [];
         let product = [];
         this.getProduct = lodash.uniqBy(this.productTemp, 'product');
@@ -30,7 +29,6 @@ export class ViewStockComponent implements OnInit {
           );
           element['quantity'] = lodash.sumBy(prod, 'quantity');
         });
-
         let data = {
           keys: product,
         };

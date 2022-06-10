@@ -95,7 +95,7 @@ if (err) {
  });
 
 
- app.get("/Client/:data",(request,response) => {
+ app.get("/mail/:data",(request,response) => {
 
   console.log("data getted",request.params.data)
 

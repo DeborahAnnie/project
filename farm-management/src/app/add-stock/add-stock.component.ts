@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { CouchServiceService } from '../couch-service.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -19,14 +18,12 @@ export class AddStockComponent implements OnInit {
     productName: '',
     stockTot: '',
     type: 'stock',
-    user: this.userData.id,
   };
   productInfo: any;
 
   constructor(
     private fb: FormBuilder,
     private dbsvc: CouchServiceService,
-    private http: HttpClient,
     private router: Router,
     private toast: ToastrService
   ) {
@@ -56,6 +53,7 @@ export class AddStockComponent implements OnInit {
   get stockTot() {
     return this.stockForm.controls;
   }
+
   logOut() {
     localStorage.clear();
     this.router.navigate([''], {});
@@ -70,7 +68,7 @@ export class AddStockComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         console.log('Successful!');
+        this.toast.success('Your product stock was added successfully!');
       });
-    this.toast.success('Your product stock was added successfully!');
   }
 }
