@@ -67,7 +67,6 @@ export class AddStockComponent implements OnInit {
       .postDetails(this.stockForm.value, 'demo_database')
       .subscribe((data) => {
         console.log(data);
-        console.log('Successful!');
         this.toast.success('Your product stock was added successfully!');
       });
   }

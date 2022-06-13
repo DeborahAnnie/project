@@ -12,7 +12,7 @@
                 <a href="login"> <button class="btn">Login</button></a>
             </p>
         </div>
-        <form [formGroup]="checkout" (ngSubmit)="onSubmit(this.checkout.value)">
+        <form [formGroup]="signIn" (ngSubmit)="onSubmit(this.signIn.value)">
             <div class="form-group">
                 <label>Full Name</label>
                 <input id="fullName" type="text" formControlName="fullname" class="form-control"

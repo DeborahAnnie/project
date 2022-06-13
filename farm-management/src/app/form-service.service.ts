@@ -50,6 +50,6 @@ export class FormServiceService {
   }
 
   mail(mailobject: any) {
-    return this.http.get<any>('http://localhost:8000/client/' + mailobject);
+    return this.http.get<any>('http://localhost:8000/mail/' + mailobject);
   }
 }

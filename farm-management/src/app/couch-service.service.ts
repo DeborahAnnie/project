@@ -18,9 +18,7 @@ export class CouchServiceService {
     }),
   };
 
-  constructor(private http: HttpClient) {
-    console.log('working');
-  }
+  constructor(private http: HttpClient) {}
 
   postDetails(formValues: any, db: any) {
     const url = this.endpoint + db;

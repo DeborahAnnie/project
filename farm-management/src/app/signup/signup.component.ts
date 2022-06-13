@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  checkout: FormGroup;
+  signIn: FormGroup;
   submitted = true;
   userRecord: any = {
     fullName: '',
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService
   ) {
-    this.checkout = this.fb.group({
+    this.signIn = this.fb.group({
       fullName: [this.userRecord.fullname],
       username: [this.userRecord.username],
       email: [this.userRecord.email],
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkout = this.fb.group(
+    this.signIn = this.fb.group(
       {
         fullname: ['', Validators.required],
         username: ['', [Validators.required, Validators.minLength(6)]],
@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
     );
   }
   get f(): { [key: string]: AbstractControl } {
-    return this.checkout.controls;
+    return this.signIn.controls;
   }
 
   onSubmit(Formvalue: any): void {
@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
         console.log(err);
       }
     );
-    if (this.checkout.valid) {
+    if (this.signIn.valid) {
       this.submitted = true;
       this.router.navigate(['/login']);
       this.toastr.success('Registered Successfully');
@@ -86,7 +86,7 @@ export class SignupComponent implements OnInit {
       console.log('Email verification data from database', data);
       if (data.docs[0].email == event.target.value) {
         this.toastr.error('Email Already exit enter a vaild email');
-        this.checkout.controls['email'].setValue('');
+        this.signIn.controls['email'].setValue('');
       }
     });
   }
