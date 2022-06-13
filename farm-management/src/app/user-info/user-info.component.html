@@ -100,48 +100,39 @@
         </div>
     </div>
 </body>
+
 <div class="container1">
-    <table *ngIf="userInf.length >= 1">
-        <caption>Stock
-        </caption>
-        <h2>Your Details</h2>
+    <div>
+        <input type="radio" name="sushi-lunch" id="happy-radio">
+        <input type="radio" name="sushi-lunch" id="lovers-radio" checked>
 
-        <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Aadhar Number</th>
-            <th>Mobile Number</th>
-            <th>Age</th>
-            <th>Address</th>
+        <div class="selector" *ngIf="userInf.length >= 1">
+            <div for="happy-radio" class="happy-card">
+                <h1>Your Details</h1>
+                <ul *ngFor="let info of userInf">
+                    <li>First Name: {{info.firstname}} </li>
+                    <li>Last Name: {{info.lastname}}</li>
+                    <li>Aadhar Number: {{info.aadhar}} </li>
+                    <li>Mobile Number:{{info.mobile}}</li>
+                    <li>Age:{{info.age}} </li>
+                    <li>Address:{{info.add}}</li>
 
-        </tr>
-        <tr *ngFor="let info of userInf">
-            <td>{{info.firstname}}</td>
-            <td>{{info.lastname}}</td>
-            <td>{{info.aadhar}}</td>
-            <td>{{info.mobile}}</td>
-            <td>{{info.age}}</td>
-            <td>{{info.add}}</td>
-        </tr>
-    </table>
-    <table *ngIf="userInf.length >= 1">
-        <caption>Stock
-        </caption>
-        <h2>Your Card Details</h2>
-        <tr>
-            <th>Card user name</th>
-            <th>Card Number</th>
-            <th>Exp Month</th>
-            <th>Exp Year</th>
-            <th>CVV</th>
-        </tr>
+                </ul>
+            </div>
 
-        <tr *ngFor="let info of userInf">
-            <td>{{info.cardname}}</td>
-            <td>{{info.cardnumber}}</td>
-            <td>{{info.expmonth}}</td>
-            <td>{{info.expyear}}</td>
-            <td>{{info.cvv}}</td>
-        </tr>
-    </table>
+            <div class="lovers-card">
+                <h1>Your Card Details</h1>
+                <ul *ngFor="let info of userInf">
+                    <li>Card user name: {{info.cardname}}</li>
+                    <li>Card number:{{info.cardnumber}} </li>
+                    <li>Exp Month: {{info.expmonth}}</li>
+                    <li>Exp Year: {{info.expyear}}</li>
+                    <li>CVV:{{info.cvv}} </li>
+                </ul>
+            </div>
+
+            <label for="happy-radio" class="happy-pick">Switch to Your Details</label>
+            <label for="lovers-radio" class="lovers-pick">Switch to Your Card Details</label>
+        </div>
+    </div>
 </div>

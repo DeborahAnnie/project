@@ -101,7 +101,7 @@ export class CartComponent implements OnInit {
         });
         Promise.all(taskList).then((_result) => {
           this.toast.success(
-            'Your product was added successfully and will be deliverd!'
+            'Your product ordered successfully and will be deliverd!'
           );
         });
       },

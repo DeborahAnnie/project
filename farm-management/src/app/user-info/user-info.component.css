@@ -109,54 +109,6 @@ h1 {
   }
 
 /* ------------------------------------------------------------------------------ */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 3px solid rgb(202, 168, 168);
-  margin-top: 100px;
-}
-
-th, td {
-  text-align: left;
-  padding: 16px;
-  font-family:'Times New Roman', Times, serif;
-  font-size: 20px;
-  font-weight: 500;
-}
-th{
-  font-weight:bolder;
-}
-tr:nth-child(even) {
-  background-color: #70dd9d;
-}
-tr:nth-child(odd):hover {
-  background-color: rgb(82, 221, 77);
-}
-table:hover{
-  box-shadow: #70dd9d;
-}
-
-.container1{
-  height: 600px;
-}
-
-h2{
-  font-size: 2em;
-  border-left: 5px solid dodgerblue;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  /* margin-bottom: 60px; */
-  font-weight: bold;
-  padding-left: 10px;
-}
-h2:hover{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-left: 50px;
-}
-
-/* --------------------------------------------------------------------------------------- */
 .navbar {
   overflow: hidden;
   background-color: #333;
@@ -182,4 +134,177 @@ a{
 .navbar a:hover {
   background-color: #ddd;
   color: black;
+}
+
+/* ----------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container1 {
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 400px;
+  color: #f4f7f7;
+  background-color: #586875;
+  font: 1rem/1 'Cabin', sans-serif;
+  overflow-x: hidden;
+}
+
+input {
+  position: absolute;
+  width: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.selector {
+  display: grid;
+  grid-template-areas:
+    'happy lovers'
+    'pick  pick';
+}
+
+label {
+  display: block;
+  cursor: pointer;
+}
+
+.happy-card, .lovers-card {
+  position: relative; /* for iOS */
+  width: 500px;
+  padding: 20px;
+  color: #586875;
+  background-color: #f4f7f7;
+  box-shadow: 0 10px 20px #0006;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out; /* important to use a symmetrical timing function (linear also works) */
+  animation-fill-mode: forwards;
+  margin-top: 10vh;
+}
+
+.happy-card {
+  grid-area: happy;
+  margin-right: -10px; 
+  --swing: -25px;
+  --overlap: 25px;
+  margin-left: 180px;
+
+}
+
+.lovers-card {
+  grid-area: lovers;
+  margin-right: 80px;
+  margin-left: -10px; 
+  --swing: 25px;
+  --overlap: -25px;
+
+}
+
+#happy-radio:checked ~ .selector .happy-card,
+#lovers-radio:checked ~ .selector .lovers-card {
+  animation-name: swing-forwards;
+}
+
+@keyframes swing-forwards {
+  0% {
+    z-index: 1; /* start behind other card */
+    transform: scale(0.9);
+  }
+  50% {
+    transform: translateX(var(--swing));
+  }
+  100% {
+    z-index: 2; /* end in front of other card */
+    transform: translateX(var(--overlap)) scale(1.1);
+  }
+}
+
+#happy-radio:checked ~ .selector .lovers-card,
+#lovers-radio:checked ~ .selector .happy-card {
+  animation-name: swing-backwards;
+}
+
+@keyframes swing-backwards {
+  0% {
+    z-index: 2;  /* start in front of other card */
+    transform: translateX(var(--overlap)) scale(1.1);
+  }
+  50% {
+    transform: translateX(var(--swing));
+  }
+  100% {
+    z-index: 1; /* end behind other card */
+    transform: scale(0.9);
+  }
+}
+
+h1 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #bdd6d2;
+  font-size: 1.5rem;
+}
+
+ul {
+  margin: 15px 0;
+  padding-left: 30px;
+  line-height: 1.5rem;
+  list-style-type: square;
+}
+
+p {
+  margin: 0 -20px -20px;
+  padding: 15px;
+  background-color: #bdd6d2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.happy-pick, .lovers-pick {
+  grid-area: pick;
+  padding: 15px;
+  border: 1px solid #f4f7f7;
+  background-color: #19dd3a;
+  font-size: 1.25rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.happy-pick::before, .lovers-pick::after {
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+}
+
+.happy-pick::before {
+  margin-right: 10px;
+  /* content: '\f0a8'; */
+}
+
+.lovers-pick::after {
+  margin-left: 10px;
+  /* content: '\f0a9';  */
+}
+
+#happy-radio:checked ~ .selector .happy-pick {
+  display: none;
+}
+
+#lovers-radio:checked ~ .selector .lovers-pick {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .happy-card {
+    margin-right: -85px;
+    --swing: -100px;
+  }
+
+  .lovers-card {
+    margin-left: -85px;
+    --swing: 100px;
+  }
 }

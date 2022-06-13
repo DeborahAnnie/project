@@ -16,9 +16,9 @@
                 <caption>Stock
                 </caption>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Total</th>
-                    <th>Order Total</th>
+                    <th><em>Product Name</em></th>
+                    <th><em>Total Stock</em></th>
+                    <th><em>Stock in Hand</em></th>
                 </tr>
                 <tr *ngFor="let stock of getStock">
                     <td *ngIf="stock.product">{{stock.product.productName}}</td>
@@ -35,8 +35,8 @@
                 <caption>Stock
                 </caption>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
+                    <th><em>Product Name</em></th>
+                    <th><em>Quantity</em></th>
                 </tr>
                 <tr *ngFor="let view of getProduct">
                     <td>{{view.productName}}</td>

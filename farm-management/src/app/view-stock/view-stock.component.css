@@ -99,3 +99,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(15,121,9,1) 35%, rgba
     background-color: #ddd;
     color: black;
   }
+
+  th{
+    font-family: cursive;
+    font-weight: 700;
+  }
