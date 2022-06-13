@@ -71,16 +71,8 @@ export class ProductComponent implements OnInit {
       storeData.push(stock);
       localStorage.setItem('localCart', JSON.stringify(storeData));
     } else {
-      let id = stock.prdId;
       let index: number = -1;
       this.itemsCart = JSON.parse(localStorage.getItem('localCart'));
-      for (let i = 0; i < this.itemsCart.length; i++) {
-        if (parseInt(id) === parseInt(this.itemsCart[i].prdId)) {
-          this.itemsCart[i].qnt = stock.qnt;
-          index = i;
-          break;
-        }
-      }
       if (index == -1) {
         this.itemsCart.push(stock);
         localStorage.setItem('localCart', JSON.stringify(this.itemsCart));

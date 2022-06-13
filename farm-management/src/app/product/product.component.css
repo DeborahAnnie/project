@@ -3,6 +3,7 @@
 
 .product{
     padding: 40px;
+    overflow: hidden;
 
 }
 .box{
