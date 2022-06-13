@@ -100,5 +100,6 @@ export class UserInfoComponent implements OnInit {
     localStorage.clear();
     this.router.navigate([''], {});
     alert('Your account will be logged out!');
+    this.toast.success('Your account was logged out👍');
   }
 }
