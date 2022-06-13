@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 body{
-  height: 800px;
+  height: 1200px;
 }
 .container {
   margin-left: 400px;
   margin-top: 100px;
   position: relative;
   width: 550px;
-  height: 1300px;
+  height: 1400px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -50,6 +50,8 @@ label, input, button {
 
 label {
   margin-bottom: 4px;
+  display: block;
+  cursor: pointer;
 }
 
 label:nth-of-type(2) {
@@ -146,14 +148,13 @@ a{
   display: grid;
   align-items: center;
   justify-items: center;
-  height: 400px;
+  height: 500px;
   color: #f4f7f7;
-  background-color: #586875;
   font: 1rem/1 'Cabin', sans-serif;
   overflow-x: hidden;
 }
 
-input {
+.input {
   position: absolute;
   width: 1px;
   clip: rect(0 0 0 0);
@@ -164,17 +165,12 @@ input {
 .selector {
   display: grid;
   grid-template-areas:
-    'happy lovers'
+    'happy happy2'
     'pick  pick';
 }
 
-label {
-  display: block;
-  cursor: pointer;
-}
-
-.happy-card, .lovers-card {
-  position: relative; /* for iOS */
+.detail, .cardDetail {
+  position: relative; 
   width: 500px;
   padding: 20px;
   color: #586875;
@@ -186,7 +182,7 @@ label {
   margin-top: 10vh;
 }
 
-.happy-card {
+.detail {
   grid-area: happy;
   margin-right: -10px; 
   --swing: -25px;
@@ -195,8 +191,8 @@ label {
 
 }
 
-.lovers-card {
-  grid-area: lovers;
+.cardDetail {
+  grid-area: happy2;
   margin-right: 80px;
   margin-left: -10px; 
   --swing: 25px;
@@ -204,8 +200,8 @@ label {
 
 }
 
-#happy-radio:checked ~ .selector .happy-card,
-#lovers-radio:checked ~ .selector .lovers-card {
+#card1:checked ~ .selector .detail,
+#card2:checked ~ .selector .cardDetail {
   animation-name: swing-forwards;
 }
 
@@ -223,8 +219,8 @@ label {
   }
 }
 
-#happy-radio:checked ~ .selector .lovers-card,
-#lovers-radio:checked ~ .selector .happy-card {
+#card1:checked ~ .selector .cardDetail,
+#card2:checked ~ .selector .detail {
   animation-name: swing-backwards;
 }
 
@@ -242,7 +238,7 @@ label {
   }
 }
 
-h1 {
+h2 {
   margin: 0;
   padding-bottom: 10px;
   border-bottom: 1px dashed #bdd6d2;
@@ -264,47 +260,38 @@ p {
   text-align: center;
 }
 
-.happy-pick, .lovers-pick {
+.happy-pick, .happy2-pick {
   grid-area: pick;
+  border-radius: 50px;
   padding: 15px;
   border: 1px solid #f4f7f7;
   background-color: #19dd3a;
   font-size: 1.25rem;
   font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: 70px;
+  
 }
 
-.happy-pick::before, .lovers-pick::after {
+.happy-pick::before, .happy2-pick::after {
   display: inline-block;
-  font-family: 'Font Awesome 5 Free';
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-weight: bold;
 }
 
 .happy-pick::before {
   margin-right: 10px;
-  /* content: '\f0a8'; */
 }
 
-.lovers-pick::after {
+.happy2-pick::after {
   margin-left: 10px;
-  /* content: '\f0a9';  */
 }
 
-#happy-radio:checked ~ .selector .happy-pick {
+#card1:checked ~ .selector .happy-pick {
   display: none;
 }
 
-#lovers-radio:checked ~ .selector .lovers-pick {
+#card2:checked ~ .selector .happy2-pick {
   display: none;
 }
 
-@media (max-width: 560px) {
-  .happy-card {
-    margin-right: -85px;
-    --swing: -100px;
-  }
-
-  .lovers-card {
-    margin-left: -85px;
-    --swing: 100px;
-  }
-}

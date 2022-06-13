@@ -103,12 +103,12 @@
 
 <div class="container1">
     <div>
-        <input type="radio" name="sushi-lunch" id="happy-radio">
-        <input type="radio" name="sushi-lunch" id="lovers-radio" checked>
+        <input type="radio" name="info" id="card1" class="input">
+        <input type="radio" name="info" id="card2" class="input" checked>
 
         <div class="selector" *ngIf="userInf.length >= 1">
-            <div for="happy-radio" class="happy-card">
-                <h1>Your Details</h1>
+            <div for="card1" class="detail">
+                <h2>Your Details</h2>
                 <ul *ngFor="let info of userInf">
                     <li>First Name: {{info.firstname}} </li>
                     <li>Last Name: {{info.lastname}}</li>
@@ -120,8 +120,8 @@
                 </ul>
             </div>
 
-            <div class="lovers-card">
-                <h1>Your Card Details</h1>
+            <div class="cardDetail">
+                <h2>Your Card Details</h2>
                 <ul *ngFor="let info of userInf">
                     <li>Card user name: {{info.cardname}}</li>
                     <li>Card number:{{info.cardnumber}} </li>
@@ -131,8 +131,8 @@
                 </ul>
             </div>
 
-            <label for="happy-radio" class="happy-pick">Switch to Your Details</label>
-            <label for="lovers-radio" class="lovers-pick">Switch to Your Card Details</label>
+            <label for="card1" class="happy-pick">Switch to Your Details</label>
+            <label for="card2" class="happy2-pick">Switch to Your Card Details</label>
         </div>
     </div>
 </div>
