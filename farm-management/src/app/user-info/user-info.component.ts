@@ -86,7 +86,6 @@ export class UserInfoComponent implements OnInit {
     this.couchdbsvc.postDetails(this.myform.value, 'demo_database').subscribe(
       (data) => {
         console.log(data);
-        console.log('Success');
         this.toast.success('Your Details are recorded successfully!');
 
         this.myform.reset();

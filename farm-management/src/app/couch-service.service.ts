@@ -6,7 +6,6 @@ import { Subject, Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CouchServiceService {
-  // public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>('');
   public endpoint =
     'https://5804af1c-53d6-4cc1-b0eb-5219a1cc5775-bluemix.cloudant.com/';
@@ -18,7 +17,6 @@ export class CouchServiceService {
       Authorization: this.basicAuth,
     }),
   };
-  // search: any;
 
   constructor(private http: HttpClient) {
     console.log('working');

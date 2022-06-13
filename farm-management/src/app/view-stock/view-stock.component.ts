@@ -10,7 +10,7 @@ import * as lodash from 'lodash';
 })
 export class ViewStockComponent implements OnInit {
   stockTemp = [];
-  productTemp: any;
+  productTemp = [];
   constructor(private svc: CouchServiceService, private router: Router) {}
 
   ngOnInit(): void {
