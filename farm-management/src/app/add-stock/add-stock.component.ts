@@ -12,8 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 export class AddStockComponent implements OnInit {
   stockForm: FormGroup;
 
-  userData = JSON.parse(localStorage.getItem('localS') || '{}');
-
   stock: any = {
     productName: '',
     stockTot: '',
@@ -55,7 +53,6 @@ export class AddStockComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.clear();
     this.router.navigate([''], {});
     alert('Your account will be logged out!');
   }

@@ -90,7 +90,6 @@ export class ViewStockComponent implements OnInit {
   getStock: any = [];
 
   logOut() {
-    localStorage.clear();
     this.router.navigate([''], {});
     alert('Your account will be logged out!');
   }
