@@ -21,6 +21,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(15,121,9,1) 35%, rgba
   a{
     text-decoration: none;
     color: white;
+    cursor: pointer;
   }
   a:hover{
     color:black;

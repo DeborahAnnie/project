@@ -92,6 +92,7 @@ body {
 a{
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 a:hover{
   color:black;
@@ -120,7 +121,6 @@ a:hover{
   background-color: #ddd;
   color: black;
 }
-
 
 
 
