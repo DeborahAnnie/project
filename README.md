@@ -19,7 +19,7 @@ stock accordingly.
 
     Stock
 
-    Register/Login---> User Information form
+    Register/Login---> User Information form(can fill and view)
                   ---> Buying Products (Fertilizers, Pesticides, Crops)
                   ---> Logout
     
