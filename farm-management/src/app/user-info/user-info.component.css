@@ -207,14 +207,13 @@ a{
 
 @keyframes swing-forwards {
   0% {
-    z-index: 1; /* start behind other card */
+    z-index: 1; 
     transform: scale(0.9);
   }
   50% {
     transform: translateX(var(--swing));
   }
   100% {
-    z-index: 2; /* end in front of other card */
     transform: translateX(var(--overlap)) scale(1.1);
   }
 }
@@ -226,14 +225,13 @@ a{
 
 @keyframes swing-backwards {
   0% {
-    z-index: 2;  /* start in front of other card */
+    z-index: 2;  
     transform: translateX(var(--overlap)) scale(1.1);
   }
   50% {
     transform: translateX(var(--swing));
   }
   100% {
-    z-index: 1; /* end behind other card */
     transform: scale(0.9);
   }
 }
