@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
     username: '',
     email: '',
     Password: '',
-    Confirmpassword: '',
+    confirmPassword: '',
     type: '',
   };
   checkUsername: any;
@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
       username: [this.userRecord.username],
       email: [this.userRecord.email],
       Password: [this.userRecord.Password],
-      Confirmpassword: [this.userRecord.Confirmpassword],
+      Confirmpassword: [this.userRecord.confirmPassword],
       type: [],
     });
   }
