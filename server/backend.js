@@ -95,13 +95,13 @@ if (err) {
  });
 
 
- app.get("/mail/:data",(request,response) => {
+ app.get("/uname/:data",(request,response) => {
 
   console.log("data getted",request.params.data)
 
   let logindetail = {
     selector:{
-      "email":request.params.data,
+      "username":request.params.data,
       "type":"user"
     }
   }

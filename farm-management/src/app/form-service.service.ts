@@ -45,7 +45,7 @@ export class FormServiceService {
     return this.http.post(url, selectorData, this.httpOptions);
   }
 
-  mail(mailobject: any) {
-    return this.http.get<any>('http://localhost:8000/mail/' + mailobject);
+  uname(nameobject: any) {
+    return this.http.get<any>('http://localhost:8000/uname/' + nameobject);
   }
 }

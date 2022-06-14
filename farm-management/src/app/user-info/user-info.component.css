@@ -241,7 +241,8 @@ a{
 h2 {
   margin: 0;
   padding-bottom: 10px;
-  border-bottom: 1px dashed #bdd6d2;
+  font-style: oblique;
+  border-bottom: 1px dashed #46d141;
   font-size: 1.5rem;
 }
 

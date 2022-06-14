@@ -110,12 +110,12 @@
             <div for="card1" class="detail">
                 <h2>Your Details</h2>
                 <ul *ngFor="let info of userInf">
-                    <li>First Name: {{info.firstname}} </li>
-                    <li>Last Name: {{info.lastname}}</li>
-                    <li>Aadhar Number: {{info.aadhar}} </li>
-                    <li>Mobile Number:{{info.mobile}}</li>
-                    <li>Age:{{info.age}} </li>
-                    <li>Address:{{info.add}}</li>
+                    <li><strong>First Name: </strong><em>{{info.firstname}}</em> </li>
+                    <li><strong>Last Name: </strong><em>{{info.lastname}}</em></li>
+                    <li><strong>Aadhar Number: </strong><em>{{info.aadhar}}</em> </li>
+                    <li><strong> Mobile Number: </strong><em>{{info.mobile}}</em></li>
+                    <li><strong> Age: </strong><em>{{info.age}}</em> </li>
+                    <li><strong> Address: </strong><em>{{info.add}}</em></li>
 
                 </ul>
             </div>
@@ -123,11 +123,11 @@
             <div class="cardDetail">
                 <h2>Your Card Details</h2>
                 <ul *ngFor="let info of userInf">
-                    <li>Card user name: {{info.cardname}}</li>
-                    <li>Card number:{{info.cardnumber}} </li>
-                    <li>Exp Month: {{info.expmonth}}</li>
-                    <li>Exp Year: {{info.expyear}}</li>
-                    <li>CVV:{{info.cvv}} </li>
+                    <li><strong> Card user name: </strong><em>{{info.cardname}}</em></li>
+                    <li><strong> Card number: </strong><em>{{info.cardnumber}}</em> </li>
+                    <li><strong> Exp Month: </strong><em>{{info.expmonth}}</em></li>
+                    <li><strong> Exp Year: </strong><em> {{info.expyear}}</em></li>
+                    <li><strong> CVV: </strong><em>{{info.cvv}}</em> </li>
                 </ul>
             </div>
 

@@ -79,14 +79,13 @@ export class SignupComponent implements OnInit {
       this.toastr.success('Registered Successfully');
     }
   }
-
   validation(event: any) {
     console.log(event.target.value);
-    this.svc.mail(event.target.value).subscribe((data: any) => {
-      console.log('Email verification data from database', data);
-      if (data.docs[0].email == event.target.value) {
-        this.toastr.error('Email Already exit enter a vaild email');
-        this.signIn.controls['email'].setValue('');
+    this.svc.uname(event.target.value).subscribe((data: any) => {
+      console.log('Username verification data from database', data);
+      if (data.docs[0].username == event.target.value) {
+        this.toastr.error('Username Already exist try another username');
+        this.signIn.controls['username'].setValue('');
       }
     });
   }
