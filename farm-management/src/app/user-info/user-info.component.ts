@@ -51,8 +51,8 @@ export class UserInfoComponent implements OnInit {
     this.myform = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      aadhar: ['', [Validators.required]],
-      mobile: ['', [Validators.required]],
+      aadhar: ['', Validators.required],
+      mobile: ['', Validators.required],
       age: ['', Validators.required],
       add: ['', Validators.required],
       cardname: ['', Validators.required],

@@ -84,7 +84,7 @@ export class SignupComponent implements OnInit {
     this.svc.uname(event.target.value).subscribe((data: any) => {
       console.log('Username verification data from database', data);
       if (data.docs[0].username == event.target.value) {
-        this.toastr.error('Username Already exist try another username');
+        this.toastr.warning('Username Already exist try another username');
         this.signIn.controls['username'].setValue('');
       }
     });

@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <label for="ccnum">Credit card number</label>
-                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"
+                    <input type="number" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"
                         formControlName="cardnumber">
                     <div class="help-block" *ngIf="f.cardnumber.invalid && f.cardnumber.touched">
                         <span *ngIf="f.cardnumber.errors?.required">Cardnumber is required</span>
@@ -83,14 +83,14 @@
                 </div>
                 <div>
                     <label for="expyear">Exp Year</label>
-                    <input type="text" id="expyear" name="expyear" formControlName="expyear">
+                    <input type="number" id="expyear" name="expyear" formControlName="expyear">
                     <div class="help-block" *ngIf="f.expyear.invalid && f.expyear.touched">
                         <span *ngIf="f.expyear.errors?.required">Expiry year is required</span>
                     </div>
                 </div>
                 <div>
                     <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" name="cvv" formControlName="cvv">
+                    <input type="number" id="cvv" name="cvv" formControlName="cvv">
                     <div class="help-block" *ngIf="f.cvv.invalid && f.cvv.touched">
                         <span *ngIf="f.cvv.errors?.required">CVV number is required</span>
                     </div>
