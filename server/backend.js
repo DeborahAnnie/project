@@ -4,8 +4,6 @@ const cors = require('cors');
 const dbconnection =require('./nanodb');
 const app = express();
 app.disable("x-powered-by");
-let helmet = require("helmet");
-app.use(helmet.hidePoweredBy());
 
 const port = 8000;
 

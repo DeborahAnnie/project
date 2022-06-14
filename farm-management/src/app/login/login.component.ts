@@ -45,7 +45,7 @@ export class LoginComponent {
         localStorage.setItem('localS', JSON.stringify(data));
 
         if (data.docs.length <= 0) {
-          this.toastr.error('Please Register');
+          this.toastr.error('Register first please');
         }
         if (data.docs[0].username === Formvalue.username) {
           if (data.docs[0].Password === Formvalue.Password) {
@@ -53,9 +53,9 @@ export class LoginComponent {
               queryParams: loginData,
             });
 
-            this.toastr.success('Login Successfully');
+            this.toastr.success('Logged in Successfully');
           } else {
-            this.toastr.error('Enter Correct Password ');
+            this.toastr.error('Enter Correct Password!!');
           }
         }
       },
