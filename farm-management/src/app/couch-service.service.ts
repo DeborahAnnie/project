@@ -28,12 +28,6 @@ export class CouchServiceService {
     });
   }
 
-  getAll(db: any) {
-    const url = this.endpoint + db + '/_all_docs?include_docs=true';
-    const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
-    return this.http.get(url, { headers: { Authorization: basicAuth } });
-  }
-
   getAllDocsByKeys(db: any, data: any) {
     const url = this.endpoint + db + '/_all_docs?include_docs=true';
     const basicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
