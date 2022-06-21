@@ -65,6 +65,19 @@ export class CartComponent implements OnInit {
     alert('Your account will be logged out!');
   }
 
+  inc(getDetail) {
+    if (getDetail.productQnt != 100) {
+      getDetail.productQnt += 1;
+    }
+    localStorage.setItem('localCart', JSON.stringify(this.getcartDetail));
+  }
+  dec(getDetail) {
+    if (getDetail.productQnt != 1) {
+      getDetail.productQnt -= 1;
+    }
+    localStorage.setItem('localCart', JSON.stringify(this.getcartDetail));
+  }
+
   // --------------------------------------------------------------------------
   post() {
     this.userData = JSON.parse(localStorage.getItem('localS') || '{}');

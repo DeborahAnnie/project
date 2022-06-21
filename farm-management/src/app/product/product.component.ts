@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   public filterCategory: any;
   public searchTerm!: string;
   searchKey: string = '';
+
   constructor(private svc: CouchServiceService, private router: Router) {
     this.svc.cartSubject.subscribe((data) => {
       this.cartItem = data;

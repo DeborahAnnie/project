@@ -26,7 +26,9 @@
                 <td>{{getDetail.productName}}</td>
                 <td>{{getDetail.productPrice}}</td>
                 <td>
+                    <button type="button" class="btn3" (click)="inc(getDetail)"> <em class="fa fa-plus"></em></button>
                     {{getDetail.productQnt}}
+                    <button type="button" class="btn3" (click)="dec(getDetail)"> <em class="fa fa-minus"></em></button>
                 </td>
                 <td>₹{{getDetail.productQnt * getDetail.productPrice | number}}</td>
             </tr>
